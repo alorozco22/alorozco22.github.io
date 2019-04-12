@@ -1,9 +1,7 @@
 # Portfolio (under development).
 
-This is my personal prototyping repository. Eventually, it will contain my portfolio; however, today there is exclusively a project under development.
+Currently working on a particular project for [CORE](http://core-econ.org/).
 
 # Personal use notes
 
-Alfredo, follow the official documentation. Edit the electric-book-works templates first. The result should be copied in the correspondent folders.
-
-Edit.
+To generate the html I use the [Electric Book Works](https://electricbookworks.com/) workflow. The final html files structure is in the site folder.
