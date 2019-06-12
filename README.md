@@ -1,5 +1,3 @@
-# Portfolio (under development).
-
 Currently working on a particular project for [CORE](http://core-econ.org/).
 
 # Personal use notes
