@@ -1,0 +1,82 @@
+<div class="masthead">
+
+{% if is-book-subdirectory != true %}
+    <ul>
+        <li class="masthead-series-name"><a href="{{ path-to-root-directory }}index.html">{{ series-name }}</a></li>
+    </ul>
+
+{% else %}
+
+    {% if site.output == "app" %}
+    {% capture masthead-contents-page %}{{ app-contents-page }}{% endcapture %}
+    {% assign breadcrumb-nav-tree = app-nav-tree %}
+    {% else %}
+    {% capture masthead-contents-page %}{{ web-contents-page }}{% endcapture %}
+    {% assign breadcrumb-nav-tree = web-nav-tree %}
+    {% endif %}
+
+    {% if site.data.settings.masthead.[output-format] == "breadcrumbs" %}
+
+        <ul>
+            {%if number-of-works == 1 %}
+                <li class="masthead-book-title">
+                    <a href="{{ path-to-root-directory }}index.html">{{ title }}</a>
+                    {% include beta-button %}
+                </li>
+                {% include breadcrumbs breadcrumb-tree=breadcrumb-nav-tree %}
+            {% else %}
+                <li class="masthead-series-name"><a href="{{ path-to-root-directory }}index.html">{{ series-name }}</a></li>
+                <li class="masthead-book-title"><a href="{{ masthead-contents-page }}{% unless masthead-contents-page contains '.html' %}.html{% endunless %}">{{ title }}</a></li>
+                {% include breadcrumbs breadcrumb-tree=breadcrumb-nav-tree %}
+            {% endif %}
+        </ul>
+
+    {% elsif site.data.settings.masthead.[output-format] == "site-name" %}
+
+        <ul>
+            <li class="masthead-series-name">
+                <a href="{{ path-to-root-directory }}index.html">{{ series-name }}</a>
+                {% include beta-button %}
+            </li>
+        </ul>
+
+    {% elsif site.data.settings.masthead.[output-format] == "page-title" %}
+
+        <ul>
+            {%if number-of-works == 1 %}
+                <li class="masthead-book-title">
+                    <a href="{{ path-to-root-directory }}index.html">{{ title }}</a>
+                    {% include beta-button %}
+                </li>
+            {% else %}
+                <li class="masthead-series-name"><a href="{{ path-to-root-directory }}index.html">{{ series-name }}</a></li>
+                <li class="masthead-book-title"><a href="{{ masthead-contents-page }}{% unless masthead-contents-page contains '.html' %}.html{% endunless %}">{{ title }}</a></li>
+                <li class="masthead-page-title">{{ page.title }}</li>
+            {% endif %}
+        </ul>
+
+    {% else site.data.settings.masthead.[output-format] == "book-title" %}
+
+        <ul>
+            {%if number-of-works == 1 %}
+                <li class="masthead-book-title">
+                    <a href="{{ path-to-root-directory }}index.html">{{ title }}</a>
+                    {% include beta-button %}
+                </li>
+            {% else %}
+                <li class="masthead-series-name"><a href="{{ path-to-root-directory }}index.html">{{ series-name }}</a></li>
+                <li class="masthead-book-title"><a href="{{ masthead-contents-page }}{% unless masthead-contents-page contains '.html' %}.html{% endunless %}">{{ title }}</a></li>
+            {% endif %}
+        </ul>
+
+    {% endif %}
+
+    {% comment %} Unless we're building a particular language, 
+    include the language selector. {% endcomment %}
+    {% unless site.build-language and site.build-language != "" %}
+        {% include language-select %}
+    {% endunless %}
+
+{% endif %}
+
+</div><!--.masthead-->
