@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>
+    Experiments in economics: Laboratory projects: Markdown
+    </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Markdown" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.core-econ.org/docs/markdown.html" />
+    <meta property="og:image" content="http://www.core-econ.org/_docs/images/web/" />
+        <link rel="stylesheet" type="text/css" media="all" href="/book/styles/web.css" />
+<script id="MathJax"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script id="MathJaxConfig" type="text/x-mathjax-config" >
+MathJax.Hub.Config({
+    messageStyle: "none",
+    "HTML-CSS": {
+        availableFonts: [], // force use of webFont
+        webFont: "Gyre-Pagella",
+        scale: 90,
+        styles: {
+            ".MathJax [style*=border-top-width]": {
+                "border-top-width": "0.5pt ! important"
+            }
+        }
+    }
+});
+</script>
+<script>
+WebFontConfig = {
+     google: {
+         families: ['Amiri:400,400i,700', 'Source Sans Pro:400,700,700:latin-ext']
+     }
+};
+(function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js';
+    wf.async = true;
+    s.parentNode.insertBefore(wf, s);
+})(document)
+</script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71347024-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-106812057-1');
+</script>
+</head>
+<body class="_docs chapter">
+<div class="notification warning-testing-site">
+    You're looking at a testing site for Experiments in economics: Laboratory projects, not the real, live site.
+</div>
+<div id="wrapper">
+<div class="masthead">
+    <ul>
+        <li class="masthead-series-name"><a href="../index.html">Experiments in economics: Laboratory projects</a></li>
+    </ul>
+</div><!--.masthead-->
+<div class="nav-buttons">
+	<a class="nav-back-button">←</a>
+	<a class="nav-button" href="#nav">Contents</a>
+</div>
+    <div class="chapter-opener-image chapter-opener-image-none">
+    </div>
+	<div id="content">
+<h1 class="no_toc" title="Markdown" id="markdown">Markdown</h1>
+<ul id="markdown-toc">
+  <li><a href="#how-html-works" id="markdown-toc-how-html-works">How HTML works</a></li>
+  <li><a href="#how-markdown-works" id="markdown-toc-how-markdown-works">How markdown works</a>    <ul>
+      <li><a href="#paragraphs" id="markdown-toc-paragraphs">Paragraphs</a></li>
+      <li><a href="#headings" id="markdown-toc-headings">Headings</a></li>
+      <li><a href="#italics" id="markdown-toc-italics">Italics</a></li>
+      <li><a href="#bold" id="markdown-toc-bold">Bold</a></li>
+      <li><a href="#lists" id="markdown-toc-lists">Lists</a></li>
+      <li><a href="#simple-tables" id="markdown-toc-simple-tables">Simple tables</a></li>
+      <li><a href="#blockquotes" id="markdown-toc-blockquotes">Blockquotes</a></li>
+      <li><a href="#hyperlinks" id="markdown-toc-hyperlinks">Hyperlinks</a></li>
+      <li><a href="#images" id="markdown-toc-images">Images</a></li>
+      <li><a href="#endnotes" id="markdown-toc-endnotes">Endnotes</a></li>
+      <li><a href="#definition-lists" id="markdown-toc-definition-lists">Definition lists</a></li>
+    </ul>
+  </li>
+  <li><a href="#using-class-tags" id="markdown-toc-using-class-tags">Using class tags</a>    <ul>
+      <li><a href="#inventing-classes" id="markdown-toc-inventing-classes">Inventing classes</a></li>
+      <li><a href="#block-and-inline-elements" id="markdown-toc-block-and-inline-elements">Block and inline elements</a></li>
+    </ul>
+  </li>
+  <li><a href="#editing-reflowable-text" id="markdown-toc-editing-reflowable-text">Editing reflowable text</a></li>
+</ul>
+<p>This guide explains how to edit text for the workflow. On its own, it’s also a handy guide to markdown in general.</p>
+<p>If you get your markdown right, the workflow can zap out an almost-print-ready PDF, website or ebook from your files in a matter of minutes. That is, we go straight from edited manuscript to page proofs – no typesetting!</p>
+<p>To edit for the workflow, you need to have a rough idea how HTML works, and you need to learn markdown. If you’re new to HTML and markdown, don’t worry: it’s much easier than you think.</p>
+<h2 id="how-html-works">How HTML works</h2>
+<p>HTML is a computer language. It’s a way for us to mark up or tag text, so that a computer knows how to display it beautifully to humans. That is, software (most commonly a web browser) reads the HTML code and <em>renders</em> it as nice-looking, readable text and images.</p>
+<p>In HTML, each piece of content (e.g. a paragraph) starts and ends with a tag that a computer can recognise. Tags are always in elbow brackets, like this paragraph tag: <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span></code>.</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="w">
+</span><span class="n">This</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">tagged</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">HTML</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">paragraph.</span><span class="w">
+</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span><span class="w">
+</span></code></pre></div></div>
+<p>The slash ‘closes’ the tag.</p>
+<p>The <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span></code> tag is one of about a hundred possible tags, maybe ten of which you’ll see in a book, such as tags for headings (e.g. <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">h</span><span class="m">1</span><span class="o">&gt;</span></code>, <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">h</span><span class="m">2</span><span class="o">&gt;</span></code>), bold and italic, lists, images, tables, and blockquotes.</p>
+<p>But not all paragraphs are the same: there are opening paragraphs, pull-quote paragraphs, blurb paragraphs and more. If I want to tell the computer what <em>kind</em> of paragraph it is, I can put it in a special class. Say, the ‘blurb’ class of paragraph. To write this in HTML, I would make the tag <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">p</span><span class="w"> </span><span class="n">class</span><span class="o">=</span><span class="s2">"blurb"</span><span class="o">&gt;</span></code>. Unlike its limited set of specific tags, HTML classes are infinite, because we can make up class names as we need them.</p>
+<p>HTML is very simple and very powerful (which is why it’s the language behind almost every web page). We can mark up everything in a book using HTML tags and classes. In our workflow, we store books in HTML, with each book part (title page, contents page, chapter, etc.) in its own HTML file.</p>
+<p>Then, to create print-ready PDFs, websites and ebooks from that HTML, we combine the files with CSS stylesheets. CSS is another computer language that defines design: font sizes, indentation, colour, etc. A CSS file will say ‘make all headings bold’, for instance, or ‘indent blockquotes by 1em’.</p>
+<p>If we combine a book’s HTML with a stylesheet designed for print, we can get a print-ready PDF. If we combine the same HTML with a stylesheet for the web, we get the book as a website. This way, we only ever store the book’s content once, and use different stylesheets to generate alternative editions from that single source.</p>
+<p>Unfortunately HTML tags are very, very time consuming to type by hand. But we have a shortcut! It’s called markdown, and it’s amazing.</p>
+<h2 id="how-markdown-works">How markdown works</h2>
+<p><a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> is just plain text, neatly structured. Plain text as in <code class="language-r highlighter-rouge"><span class="n">.txt</span></code> files. It’s so neatly structured that software can work out, just from the structure of your text, what HTML you intended, and convert it instantly to finished HTML, tags and all. No way! Yes way.</p>
+<p>Markdown was invented by two very smart people in 2004: <a href="http://daringfireball.net/projects/markdown/">John Gruber</a> and Aaron Swartz. Since their work, others have added new features to markdown. So today there are many variations of markdown. We use a variation called kramdown.</p>
+<p>As you work with markdown, you’ll get to know it really well. That can take as little as a few hours. And hopefully you’ll come to love it as much as we do. To do that, you’ll need to keep the <a href="http://kramdown.gettalong.org/syntax.html">kramdown syntax reference</a> handy. For now, though, we’ll explain the most common, important things you’ll need to edit simple books.</p>
+<p>To quickly test any basic markdown yourself, go to <a href="http://kramdown.herokuapp.com/">http://kramdown.herokuapp.com</a>. Type markdown in the left, and see the rendered HTML on the right.</p>
+<h3 id="paragraphs">Paragraphs</h3>
+<p>This is easy: a paragraph is a line of text separated from any other text by empty lines.</p>
+<p>You can even have line breaks in a paragraph, and markdown will just ignore them (or, rather, replace them with spaces). That is, markdown is looking for an empty line before it ends a paragraph.</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">paragraph.</span><span class="w">
+
+</span><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">another</span><span class="w">
+</span><span class="n">paragraph.</span><span class="w">
+</span></code></pre></div></div>
+<p>Result:</p>
+<p>This is a paragraph.</p>
+<p>This is another
+paragraph.</p>
+<h3 id="headings">Headings</h3>
+<p>You can use up to six levels of heading, from level one to level six. To make a heading, just put one or more hash signs, <code class="language-r highlighter-rouge"><span class="c1">#</span></code>, and a space, before the heading. For a first-level heading, use one hash sign; for a second-level heading, use two; and so on. Like with paragraphs, separate the heading from everything else with an empty line space.</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">## This is a second-level heading</span><span class="w">
+
+</span><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">paragraph.</span><span class="w">
+</span></code></pre></div></div>
+<h3 id="italics">Italics</h3>
+<p>Just put <code class="language-r highlighter-rouge"><span class="o">*</span></code> before and after the italicised words: <code class="language-r highlighter-rouge"><span class="n">is</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">really</span><span class="w"> </span><span class="o">*</span><span class="n">this</span><span class="o">*</span><span class="w"> </span><span class="n">easy</span><span class="o">?</span></code>. It’s really <em>this</em> easy.</p>
+<h3 id="bold">Bold</h3>
+<p>Just put two <code class="language-r highlighter-rouge"><span class="o">*</span></code>s before and after the bold text: <code class="language-r highlighter-rouge"><span class="n">good</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="o">**</span><span class="n">shouting</span><span class="o">**</span></code>. <strong>Shouting.</strong></p>
+<p class="sidenote">Tip: If you use bold in a first-level heading (e.g. <code class="language-r highlighter-rouge"><span class="c1"># **Chapter 1** Lost at Sea</span></code>), our Classic theme’s typography will put that bold text onto its own line, set off from the heading. This is useful for chapter numbers that should look separate from the chapter title, but in the underlying HTML need to be part of the heading, for instance when software generates tables of contents.</p>
+<h3 id="lists">Lists</h3>
+<p>There are two kinds of lists: bulleted and numbered. For a bulleted list, start each line with a <code class="language-r highlighter-rouge"><span class="o">*</span></code> and a tab. For a numbered list, start each line with a number, a full stop and a tab (you can use any number, because the software will always create an HTML list that starts with 1; but it’s best to use 1 or the actual numbers you intend, just to make things neat). Markdown:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="m">1</span><span class="n">.</span><span class="w">	</span><span class="n">Apples</span><span class="w">
+</span><span class="m">2</span><span class="n">.</span><span class="w">	</span><span class="n">Oranges</span><span class="w">
+</span><span class="m">3</span><span class="n">.</span><span class="w">	</span><span class="n">Pears</span><span class="w">
+
+</span><span class="o">*</span><span class="w">	</span><span class="n">Apples</span><span class="w">
+</span><span class="o">*</span><span class="w">	</span><span class="n">Oranges</span><span class="w">
+</span><span class="o">*</span><span class="w">	</span><span class="n">Pears</span><span class="w">
+</span></code></pre></div></div>
+<p>Result:</p>
+<ol>
+  <li>Apples</li>
+  <li>Oranges</li>
+  <li>Pears</li>
+</ol>
+<ul>
+  <li>Apples</li>
+  <li>Oranges</li>
+  <li>Pears</li>
+</ul>
+<h3 id="simple-tables">Simple tables</h3>
+<p>You can create simple tables in markdown. You can make them really neat, or you can make them really efficient. Markdown:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">|</span><span class="w"> </span><span class="n">Fruit</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">Quantity</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span><span class="o">|---------|----------|</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="n">Apples</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="m">2</span><span class="w">        </span><span class="o">|</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="n">Oranges</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">5</span><span class="w">        </span><span class="o">|</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="n">Pears</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="m">0</span><span class="w">        </span><span class="o">|</span><span class="w">
+
+</span><span class="o">|</span><span class="w"> </span><span class="n">Fruit</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Quantity</span><span class="w">
+</span><span class="o">|---|---</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="n">Apples</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="n">Oranges</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="n">Pears</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></code></pre></div></div>
+<p>Result:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Fruit</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apples</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Oranges</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Pears</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+    <tr>
+      <th>Fruit</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Apples</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Oranges</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Pears</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p class="sidenote">Note the minimum three hyphens in the lines that creates the border between the table head and table body. (Kramdown doesn’t require three, but GitHub previews do, so it’s best practice.)</p>
+<p>To make more complex tables with merged or individually styled cells, you have to use actual HTML table markup. See the <a href="18-tables.html#tables">Tables</a> chapter for more detail.</p>
+<h3 id="blockquotes">Blockquotes</h3>
+<p>Remember how old email programs put a <code class="language-r highlighter-rouge"><span class="o">&gt;</span></code> at the start of each line when you hit ‘Reply’? Ah, <code class="language-r highlighter-rouge"><span class="o">&gt;</span></code> means blockquote. Start each line with <code class="language-r highlighter-rouge"><span class="o">&gt;</span></code> and a space to make text a blockquote. Markdown:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">blockquote.</span><span class="w">
+</span></code></pre></div></div>
+<p>Result:</p>
+<blockquote>
+  <p>This is text in a blockquote.</p>
+</blockquote>
+<p>In our workflow we use blockquote HTML for more than just quotations, though. We also use it for figures and poetry. We’ll come back to this later.</p>
+<h3 id="hyperlinks">Hyperlinks</h3>
+<p>If you want your final HTML to include a clickable link:</p>
+<ul>
+  <li>surround the text you want clickable with <code class="language-r highlighter-rouge"><span class="p">[</span></code> and <code class="language-r highlighter-rouge"><span class="p">]</span></code></li>
+  <li>put the URL it should point to between <code class="language-r highlighter-rouge"><span class="p">(</span></code> and <code class="language-r highlighter-rouge"><span class="p">)</span></code> immediately afterwards.</li>
+</ul>
+<p>Markdown:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">To</span><span class="w"> </span><span class="n">learn</span><span class="w"> </span><span class="n">more</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">click</span><span class="w"> </span><span class="n">here</span><span class="p">](</span><span class="n">http</span><span class="o">://</span><span class="n">google.com</span><span class="p">)</span><span class="n">.</span><span class="w">
+</span></code></pre></div></div>
+<p>Result:</p>
+<p>To learn more, <a href="http://google.com">click here</a>.</p>
+<h3 id="images">Images</h3>
+<p>To place an image, you include a line telling the computer where to find the image file. This looks like a hyperlink, but with a <code class="language-r highlighter-rouge"><span class="o">!</span></code> at the start of the line. Inside the square brackets, you include a brief description of the image (this is useful to screen readers for the visually impaired).</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">!</span><span class="p">[</span><span class="n">A</span><span class="w"> </span><span class="n">dog</span><span class="w"> </span><span class="n">chasing</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">bus.</span><span class="p">](</span><span class="n">images</span><span class="o">/</span><span class="n">dogbus.jpg</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+<p>In the parentheses above, the <code class="language-r highlighter-rouge"><span class="n">images</span><span class="o">/</span></code> part says that the <code class="language-r highlighter-rouge"><span class="n">dogbus.jpg</span></code> image is in the <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder, which is alongside the markdown file. In our workflow, we always put images in the <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder like this.</p>
+<p>See the <a href="15-images.html#images">Images</a> chapter for more detail.</p>
+<h3 id="endnotes">Endnotes</h3>
+<p>Endnotes in our workflow appear at the end of a document (that is, a web page or a book chapter).<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></p>
+<ul>
+  <li>put a <code class="language-r highlighter-rouge"><span class="p">[</span><span class="o">^</span><span class="m">1</span><span class="p">]</span></code> where the footnote reference should appear (the <code class="language-r highlighter-rouge"><span class="m">1</span></code> there can be any numbers or letters, and should be different for each footnote in a document);</li>
+  <li>anywhere in the document (we recommend after the paragraph containing the footnote reference), put <code class="language-r highlighter-rouge"><span class="p">[</span><span class="o">^</span><span class="m">1</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="n">Your</span><span class="w"> </span><span class="n">footnote</span><span class="w"> </span><span class="n">text</span><span class="w"> </span><span class="n">here.</span></code>.</li>
+</ul>
+<p>We’ll explain how to create notes on the side or bottom of a page (footnotes) later when we talk about classes.</p>
+<p>(By the way, endnote references are <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">sup</span><span class="o">&gt;</span></code> in kramdown’s HTML, not unicode numbers like ². The Classic theme includes styling for these and for <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">sub</span><span class="o">&gt;</span></code>, as in H<sub>2</sub>O.)</p>
+<p>See the <a href="17-notes.html#footnotes-endnotes-and-sidenotes">Notes</a> chapter for more detail.</p>
+<h3 id="definition-lists">Definition lists</h3>
+<p>A definition list is a list of definitions, not surprisingly. Think of a dictionary. A definition list comprises one or more entries, and each entry has a headword and a definition. Even if you’re not editing a dictionary, you might need to create a short glossary or define a word or two at some point. To create a definition entry in markdown, put the headword on its own line, and the definition on the next, after a colon and a tab. Markdown:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">Editor</span><span class="w">
+</span><span class="o">:</span><span class="w">	</span><span class="n">Someone</span><span class="w"> </span><span class="n">who</span><span class="w"> </span><span class="n">spends</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">learning</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">tricks</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">making</span><span class="w"> </span><span class="n">money.</span><span class="w">
+</span></code></pre></div></div>
+<p>Result:</p>
+<dl>
+  <dt>Editor</dt>
+  <dd>Someone who spends more time learning new tricks than making money.</dd>
+</dl>
+<p>To create a whole list of definition entries, just put one of these after the other, with a line space between them.</p>
+<h2 id="using-class-tags">Using class tags</h2>
+<p>We’re going to get a bit more advanced now. Get some tea.</p>
+<p>As we mentioned earlier, sometimes we have to tell our software what <em>kind</em> of paragraph or list or blockquote we want. These <em>kinds</em> of text are called <em>classes</em>. To give something a class, we add a kramdown tag in curly braces, with a colon, and a dot before the class name. Markdown:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">This</span><span class="w"> </span><span class="n">paragraph</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">box.</span><span class="w">
+</span><span class="p">{</span><span class="o">:</span><span class="n">.box</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Result:</p>
+<p class="box">This paragraph should be in a box.</p>
+<p>For the resulting HTML to actually appear in a box, when we turn your markdown into a finished book, we’ll have to combine it with a CSS stylesheet that includes formatting instructions for the <code class="language-r highlighter-rouge"><span class="n">box</span></code> class. If you’re just editing in markdown, you don’t have to think about the stylesheets. Our default stylesheets include designs for <code class="language-r highlighter-rouge"><span class="n">box</span></code> as well as several other classes. (Which we’ll list in a moment.)</p>
+<p>But if your book needs classes that aren’t already supported in the Classic theme, you’ll need to ask a CSS-savvy designer to write you some CSS rules for your new class, to add to the bottom of your theme’s master <code class="language-r highlighter-rouge"><span class="n">.scss</span></code> files as custom CSS.</p>
+<blockquote class="box">
+  <h3 id="inventing-classes">Inventing classes</h3>
+  <p>If you invent new classes, make sure you name them for their semantic <em>purpose</em>, not their appearance. For instance, <code class="language-r highlighter-rouge"><span class="n">important</span><span class="o">-</span><span class="n">tip</span></code> is a better class name than <code class="language-r highlighter-rouge"><span class="n">shaded</span><span class="o">-</span><span class="n">bold</span></code>. Also, class names should always be lowercase and have no spaces.</p>
+</blockquote>
+<p>In addition to boxes, our default stylesheets include lots of other classes for common book features.</p>
+<blockquote class="box">
+  <h3 id="block-and-inline-elements">Block and inline elements</h3>
+  <p>Attribute tags like classes can be applied to two kinds of element: <em>block</em> elements and <em>inline</em> elements.</p>
+  <p>A block element is anything that should (in print or on screen) start and end with a line break, like a paragraph or a list. An inline element is anything that appears inside a line of running text, like bold and italic.</p>
+  <p>Most of the Classic theme’s pre-designed classes are for either block or inline elements, and sometimes both.</p>
+  <p>When you apply an attribute tag to a block-level element in kramdown, you put the tag on the line immediately following the element.</p>
+  <p>When you apply an attribute tag to an inline element, it appears immediately at the end of a span (a span is any contiguous series of inline characters inside a block element). Spans in kramdown can be marked off with asterisks as if they are italics: mark off the text you’re tagging with asterisks (<code class="language-r highlighter-rouge"><span class="o">*</span></code>), as you would italics, and put your tag immediately after the closing <code class="language-r highlighter-rouge"><span class="o">*</span></code>, on the same line. E.g. <code class="language-r highlighter-rouge"><span class="o">*</span><span class="n">Make</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">small</span><span class="o">-</span><span class="n">caps.</span><span class="o">*</span><span class="p">{</span><span class="o">:</span><span class="n">.smallcaps</span><span class="p">}</span></code>. The Classic theme will then apply the correct styling to the span, instead of the default italic.</p>
+</blockquote>
+<p>To see all the classes that our Classic theme supports, see the <a href="05-classes.html#supported-classes">Supported classes</a> section.</p>
+<h2 id="editing-reflowable-text">Editing reflowable text</h2>
+<p>When you’re working in markdown, you’re creating text that might reflow in an infinite number of ways on screens and onto page layouts. This changes the way you edit, because nothing is static.</p>
+<p>For instance, you can use special HTML codes to insert non-breaking spaces, discretionary (‘soft’) hyphens and non-breaking hyphens.</p>
+<table>
+  <thead>
+    <tr>
+      <th>I need to</th>
+      <th>Use this</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Prevent ellipses falling after a line break</td>
+      <td>Add a non-breaking space (<code class="language-r highlighter-rouge"><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span></code>) before ellipses.</td>
+    </tr>
+    <tr>
+      <td>Prevent dashes falling after a line break</td>
+      <td>Add a non-breaking space (<code class="language-r highlighter-rouge"><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span></code>) before the dash: <code class="language-r highlighter-rouge"><span class="n">the</span><span class="w"> </span><span class="n">en</span><span class="o">-</span><span class="n">dash</span><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span><span class="err">–</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="n">I</span><span class="err">'</span><span class="n">ve</span><span class="w"> </span><span class="n">explained</span><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span><span class="err">–</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">tricky.</span></code></td>
+    </tr>
+    <tr>
+      <td>Prevent line breaks between numbers and units</td>
+      <td>Use a non-breaking space: e.g. for ‘3 pm, 24 May’ type <code class="language-r highlighter-rouge"><span class="m">3</span><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span><span class="n">pm</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span><span class="n">May</span></code></td>
+    </tr>
+    <tr>
+      <td>Prevent line breaks between adjectives and their units</td>
+      <td>Use a non-breaking space: e.g. for ‘Grade 2’ type <code class="language-r highlighter-rouge"><span class="n">Grade</span><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span><span class="m">2</span></code></td>
+    </tr>
+    <tr>
+      <td>Prevent line breaks inside big numbers</td>
+      <td>Use a non-breaking space: e.g. for ‘40 000’ type <code class="language-r highlighter-rouge"><span class="m">40</span><span class="o">&amp;</span><span class="n">nbsp</span><span class="p">;</span><span class="m">000</span></code></td>
+    </tr>
+    <tr>
+      <td>Prevent a line break at a hyphen</td>
+      <td>Use <code class="language-r highlighter-rouge"><span class="o">&amp;</span><span class="c1">#x2011;</span></code> for a non-breaking hyphen, e.g. <code class="language-r highlighter-rouge"><span class="n">D</span><span class="o">&amp;</span><span class="c1">#x2011;Space</span></code> for ‘D‑Space’</td>
+    </tr>
+    <tr>
+      <td>Allow a word to hyphenate at the end of a line</td>
+      <td>Insert a discretionary (‘soft’) hyphen code: <code class="language-r highlighter-rouge"><span class="o">&amp;</span><span class="n">shy</span><span class="p">;</span></code>. E.g. <code class="language-r highlighter-rouge"><span class="n">mark</span><span class="o">&amp;</span><span class="n">shy</span><span class="p">;</span><span class="n">down</span></code></td>
+    </tr>
+  </tbody>
+</table>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>In kramdown syntax, unfortunately, endnotes are called footnotes; so it’s easy to confuse them. In book parlance, there is a big difference between footnotes and endnotes. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+	</div><!--#content-->
+    <div id="nav" class="non-printing">
+            <h2>Documentation</h2>
+            <div class="nav-list">
+                    <ol class="nav-series-home">
+                        <li><a href="../index.html">Home</a></li>
+                    </ol>
+                    <ul>
+                        <li><a href="../docs">Docs</a>
+<ul>
+    <li class="has-children"><a>Editing</a>
+      <ul>
+          <li>
+            <a href="/docs/bibliography.html">Bibliography</a>
+          </li>
+          <li>
+            <a href="/docs/boxes-and-box-like-features.html">Boxes</a>
+          </li>
+          <li>
+            <a href="/docs/classes.html">Supported classes</a>
+          </li>
+          <li>
+            <a href="/docs/definitions.html">Definitions</a>
+          </li>
+          <li>
+            <a href="/docs/dialogue.html">Dialogue</a>
+          </li>
+          <li>
+            <a href="/docs/figures.html">Figures</a>
+          </li>
+          <li>
+            <a href="/docs/glossary.html">Glossary</a>
+          </li>
+          <li>
+            <a href="/docs/house-style.html">House style</a>
+          </li>
+          <li>
+            <a href="/docs/images.html">Images</a>
+          </li>
+          <li>
+            <a href="/docs/include-theme-legend.html">Theme legends</a>
+          </li>
+          <li>
+            <a href="/docs/markdown.html">Markdown</a>
+          </li>
+          <li>
+            <a href="/docs/mathematics.html">Mathematics</a>
+          </li>
+          <li>
+            <a href="/docs/multiple-choice-questions.html">Questions</a>
+          </li>
+          <li>
+            <a href="/docs/notes.html">Footnotes, endnotes and sidenotes</a>
+          </li>
+          <li>
+            <a href="/docs/showing-links-and-cross-references-in-print.html">Links and cross-refs</a>
+          </li>
+          <li>
+            <a href="/docs/slides.html">Slidelines</a>
+          </li>
+          <li>
+            <a href="/docs/superscripts-and-subscripts.html">Superscripts and subscripts</a>
+          </li>
+          <li>
+            <a href="/docs/tables.html">Tables</a>
+          </li>
+          <li>
+            <a href="/docs/theme-key.html">Theme keys</a>
+          </li>
+          <li>
+            <a href="/docs/tocs.html">Tables of contents</a>
+          </li>
+          <li>
+            <a href="/docs/translations.html">Translations</a>
+          </li>
+          <li>
+            <a href="/docs/videos.html">Videos</a>
+          </li>
+          <li>
+            <a href="/docs/web-navigation.html">Navigation</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Technical</a>
+      <ul>
+          <li>
+            <a href="/docs/converting-manuscript-to-markdown.html">Converting manuscript to markdown</a>
+          </li>
+          <li>
+            <a href="/docs/external-media.html">External media</a>
+          </li>
+          <li>
+            <a href="/docs/javascript.html">Javascript</a>
+          </li>
+          <li>
+            <a href="/docs/requirements.html">Technical requirements</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up-your-computer.html">Setting up your computer</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up.html">Setting up</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Layout</a>
+      <ul>
+          <li>
+            <a href="/docs/page-numbers.html">Page numbers</a>
+          </li>
+          <li>
+            <a href="/docs/print-layout.html">Print layout</a>
+          </li>
+          <li>
+            <a href="/docs/running-heads-in-print.html">Running heads</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Output</a>
+      <ul>
+          <li>
+            <a href="/docs/print-output.html">Print output</a>
+          </li>
+      </ul>
+    </li>
+</ul>
+                        </li>
+                    </ul>
+  <ol class="">
+  </ol>
+            </div><!--.nav-list-->
+            <div class="widgets">
+            </div><!--.widgets-->
+    </div><!--#nav-->
+    <div id="footer" dir="ltr">
+        <div class="footer-content">
+            <div class="footer-logos">
+                <a href="http://core-econ.org">
+                    <img src="../assets/coreecon_logo_bw.png">
+                </a>
+            </div>
+            <div class="footer-text">
+            </div>
+            <div class="footer-licence">
+                <a title="Licensed under Creative Commons BY NC ND" alt="Licensed under Creative Commons BY NC ND" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="../assets/cc-byncnd.png"></a>
+                <br />
+            </div>
+        </div><!--.footer-content-->
+    </div><!--#footer-->
+    <script src="../assets/js/bundle.js"></script>
+    <style>
+        .js-mcq .mcq-correct .mcq-feedback:before {
+            content: "Correct!";
+        }
+        .js-mcq .mcq-incorrect .mcq-feedback:before {
+            content: "Incorrect";
+        }
+        .js-mcq .mcq-partially-correct .mcq-feedback:before {
+            content: "You haven't selected all the correct answers.";
+        }
+    </style>
+</div><!--#wrapper-->
+</body>
+</html>

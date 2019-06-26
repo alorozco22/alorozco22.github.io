@@ -1,0 +1,300 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>
+    Experiments in economics: Laboratory projects: Converting manuscript to markdown
+    </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Converting manuscript to markdown" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.core-econ.org/docs/converting-manuscript-to-markdown.html" />
+    <meta property="og:image" content="http://www.core-econ.org/_docs/images/web/" />
+        <link rel="stylesheet" type="text/css" media="all" href="/book/styles/web.css" />
+<script id="MathJax"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script id="MathJaxConfig" type="text/x-mathjax-config" >
+MathJax.Hub.Config({
+    messageStyle: "none",
+    "HTML-CSS": {
+        availableFonts: [], // force use of webFont
+        webFont: "Gyre-Pagella",
+        scale: 90,
+        styles: {
+            ".MathJax [style*=border-top-width]": {
+                "border-top-width": "0.5pt ! important"
+            }
+        }
+    }
+});
+</script>
+<script>
+WebFontConfig = {
+     google: {
+         families: ['Amiri:400,400i,700', 'Source Sans Pro:400,700,700:latin-ext']
+     }
+};
+(function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js';
+    wf.async = true;
+    s.parentNode.insertBefore(wf, s);
+})(document)
+</script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71347024-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-106812057-1');
+</script>
+</head>
+<body class="_docs chapter">
+<div class="notification warning-testing-site">
+    You're looking at a testing site for Experiments in economics: Laboratory projects, not the real, live site.
+</div>
+<div id="wrapper">
+<div class="masthead">
+    <ul>
+        <li class="masthead-series-name"><a href="../index.html">Experiments in economics: Laboratory projects</a></li>
+    </ul>
+</div><!--.masthead-->
+<div class="nav-buttons">
+	<a class="nav-back-button">←</a>
+	<a class="nav-button" href="#nav">Contents</a>
+</div>
+    <div class="chapter-opener-image chapter-opener-image-none">
+    </div>
+	<div id="content">
+<h1 id="converting-manuscript-to-markdown">Converting manuscript to markdown</h1>
+<p>Have PDF manuscript handy (i.e. a PDF created by the authors with images embedded).</p>
+<ol>
+  <li>
+    <p>Convert docx to markdown with Pandoc:</p>
+    <p><code class="language-r highlighter-rouge"><span class="n">pandoc</span><span class="w"> </span><span class="o">-</span><span class="n">S</span><span class="w"> </span><span class="o">-</span><span class="n">f</span><span class="w"> </span><span class="n">docx</span><span class="w"> </span><span class="o">-</span><span class="n">t</span><span class="w"> </span><span class="n">markdown</span><span class="w"> </span><span class="n">filename.docx</span><span class="w"> </span><span class="o">--</span><span class="n">output</span><span class="o">=</span><span class="n">filename.md</span><span class="w"> </span><span class="o">--</span><span class="n">atx</span><span class="o">-</span><span class="n">headers</span><span class="w"> </span><span class="o">--</span><span class="n">wrap</span><span class="o">=</span><span class="n">none</span><span class="w"> </span><span class="o">--</span><span class="n">toc</span><span class="w"> </span><span class="o">--</span><span class="n">extract</span><span class="o">-</span><span class="n">media</span><span class="o">=</span><span class="s2">""</span></code></p>
+    <p>where <code class="language-r highlighter-rouge"><span class="n">filename</span></code> is the name of the file you’re converting.</p>
+  </li>
+  <li>Add YAML frontmatter</li>
+  <li>Remove escape slashes:
+    <ol>
+      <li><code class="language-r highlighter-rouge"><span class="err">\</span><span class="c1">#</span></code> at headings</li>
+      <li><code class="language-r highlighter-rouge"><span class="err">\</span><span class="o">*</span></code> at bullets</li>
+      <li><code class="language-r highlighter-rouge"><span class="err">\</span><span class="n">.</span></code> at numbered lists</li>
+      <li><code class="language-r highlighter-rouge"><span class="err">\</span><span class="o">$</span></code> at US-dollar signs <em>outside</em> MathJax blocks</li>
+      <li><code class="language-r highlighter-rouge"><span class="err">\</span><span class="p">[</span></code>, <code class="language-r highlighter-rouge"><span class="err">\</span><span class="p">]</span></code>, <code class="language-r highlighter-rouge"><span class="err">\</span><span class="p">(</span></code>, <code class="language-r highlighter-rouge"><span class="err">\</span><span class="p">)</span></code> at links (this regex will help: <code class="language-r highlighter-rouge"><span class="err">\\\</span><span class="p">[(</span><span class="n">.</span><span class="o">+?</span><span class="p">)</span><span class="err">\\\</span><span class="p">]</span><span class="err">\</span><span class="p">((</span><span class="n">.</span><span class="o">+?</span><span class="p">)</span><span class="err">\</span><span class="p">)</span></code>)</li>
+    </ol>
+  </li>
+  <li>Clean up the MathJax:
+    <ol>
+      <li>Replace the delimiters <code class="language-r highlighter-rouge"><span class="err">\</span><span class="o">$</span></code> and <code class="language-r highlighter-rouge"><span class="err">\</span><span class="o">$</span><span class="err">\</span><span class="o">$</span></code> with <code class="language-r highlighter-rouge"><span class="o">$$</span></code></li>
+      <li><em>Do not</em> remove the slash before a US-dollar sign <em>inside</em> MathJax blocks.</li>
+      <li>Remove <code class="language-r highlighter-rouge"><span class="err">\\</span></code> which is an escape slash ahead of a slash (e.g. <code class="language-r highlighter-rouge"><span class="err">\\</span><span class="n">frac</span></code> should be <code class="language-r highlighter-rouge"><span class="err">\</span><span class="n">frac</span></code>)</li>
+    </ol>
+  </li>
+  <li>Watch for glossary definitions, which are terms the authors have made bold. Above the paragraph that they appear in, add a definition include: <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">% include definition term="" %</span><span class="p">}</span></code>, where you put the term being defined inside the quotes. Sometimes the authors will use the plural when you need to define the singlar, e.g. <code class="language-r highlighter-rouge"><span class="n">firms</span></code> in text but <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">% include definition term="firm" %</span><span class="p">}</span></code>. The glossary is in <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">data</span><span class="o">/</span><span class="n">glossary.yml</span></code>.</li>
+  <li>Turn YouTube links into YouTube includes.</li>
+  <li>If the author has used markdown incorrectly, fix it up. E.g. use the <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">:</span><span class="n">.show</span><span class="o">-</span><span class="n">url</span><span class="p">}</span></code> tag to display links in print that on the screen (web, epub) will be clickable text, rather than explicitly making the URL text the visisble, clickable text on screen.</li>
+  <li>Authors may have added markdown tags like <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">:</span><span class="n">.sidenote</span><span class="p">}</span></code>. Pandoc would have put a blank line between them and the text they apply to, and you’ll need to take that line out. (Find <code class="language-r highlighter-rouge"><span class="err">\</span><span class="n">n</span><span class="err">\</span><span class="n">n</span><span class="p">{</span><span class="o">:</span></code>, replace <code class="language-r highlighter-rouge"><span class="err">\</span><span class="n">n</span><span class="p">{</span><span class="o">:</span></code>.)</li>
+  <li>Manually create markdown as needed, e.g. for elements like MCQs, exercises and various kinds of boxes. Refer to units 1 to 3 for examples.</li>
+</ol>
+<h2 id="snippets">Snippets</h2>
+<h3 id="blank-figure">Blank figure</h3>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="o">% include figure
+   images=""
+   html=""
+   markdown=""
+   reference=""
+   link=""
+   caption=""
+   title=""
+   description=""
+   source=""
+   class=""
+%</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h3 id="definition-include">Definition include</h3>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="o">% include definition term="" %</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h3 id="blank-youtube-include">Blank YouTube include</h3>
+<p>Note, the link might be the <code class="language-r highlighter-rouge"><span class="n">tinyco.re</span></code> link in the manuscript, but the ID must be the YouTube ID in the YouTube URL.</p>
+<p>The image must be manually created from a large, qood-quality screenshot.</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="o">% include youtube 
+    id=""
+    image=""
+    link=""
+    description=""
+%</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<h3 id="useful-regex">Useful regex</h3>
+<p>Find figures and add an internal link (only works for same unit, and not for figures with letters at the ends of references):</p>
+<p><code class="language-r highlighter-rouge"><span class="n">Figure</span><span class="w"> </span><span class="p">(</span><span class="err">\</span><span class="n">d</span><span class="p">{</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">})</span><span class="err">\</span><span class="n">.</span><span class="p">(</span><span class="err">\</span><span class="n">d</span><span class="p">{</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">})</span></code></p>
+<p><code class="language-r highlighter-rouge"><span class="p">[</span><span class="n">Figure</span><span class="w"> </span><span class="err">\</span><span class="m">1</span><span class="n">.</span><span class="err">\</span><span class="m">2</span><span class="p">](</span><span class="c1">#figure-\1-\2)</span></code></p>
+<p>Find empty parameters in includes:</p>
+<p><code class="language-r highlighter-rouge"><span class="err">\</span><span class="n">n</span><span class="err">\</span><span class="n">s</span><span class="o">+</span><span class="p">[</span><span class="n">a</span><span class="o">-</span><span class="n">z</span><span class="p">]</span><span class="o">+=</span><span class="s2">""</span></code></p>
+	</div><!--#content-->
+    <div id="nav" class="non-printing">
+            <h2>Documentation</h2>
+            <div class="nav-list">
+                    <ol class="nav-series-home">
+                        <li><a href="../index.html">Home</a></li>
+                    </ol>
+                    <ul>
+                        <li><a href="../docs">Docs</a>
+<ul>
+    <li class="has-children"><a>Editing</a>
+      <ul>
+          <li>
+            <a href="/docs/bibliography.html">Bibliography</a>
+          </li>
+          <li>
+            <a href="/docs/boxes-and-box-like-features.html">Boxes</a>
+          </li>
+          <li>
+            <a href="/docs/classes.html">Supported classes</a>
+          </li>
+          <li>
+            <a href="/docs/definitions.html">Definitions</a>
+          </li>
+          <li>
+            <a href="/docs/dialogue.html">Dialogue</a>
+          </li>
+          <li>
+            <a href="/docs/figures.html">Figures</a>
+          </li>
+          <li>
+            <a href="/docs/glossary.html">Glossary</a>
+          </li>
+          <li>
+            <a href="/docs/house-style.html">House style</a>
+          </li>
+          <li>
+            <a href="/docs/images.html">Images</a>
+          </li>
+          <li>
+            <a href="/docs/include-theme-legend.html">Theme legends</a>
+          </li>
+          <li>
+            <a href="/docs/markdown.html">Markdown</a>
+          </li>
+          <li>
+            <a href="/docs/mathematics.html">Mathematics</a>
+          </li>
+          <li>
+            <a href="/docs/multiple-choice-questions.html">Questions</a>
+          </li>
+          <li>
+            <a href="/docs/notes.html">Footnotes, endnotes and sidenotes</a>
+          </li>
+          <li>
+            <a href="/docs/showing-links-and-cross-references-in-print.html">Links and cross-refs</a>
+          </li>
+          <li>
+            <a href="/docs/slides.html">Slidelines</a>
+          </li>
+          <li>
+            <a href="/docs/superscripts-and-subscripts.html">Superscripts and subscripts</a>
+          </li>
+          <li>
+            <a href="/docs/tables.html">Tables</a>
+          </li>
+          <li>
+            <a href="/docs/theme-key.html">Theme keys</a>
+          </li>
+          <li>
+            <a href="/docs/tocs.html">Tables of contents</a>
+          </li>
+          <li>
+            <a href="/docs/translations.html">Translations</a>
+          </li>
+          <li>
+            <a href="/docs/videos.html">Videos</a>
+          </li>
+          <li>
+            <a href="/docs/web-navigation.html">Navigation</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Technical</a>
+      <ul>
+          <li>
+            <a href="/docs/converting-manuscript-to-markdown.html">Converting manuscript to markdown</a>
+          </li>
+          <li>
+            <a href="/docs/external-media.html">External media</a>
+          </li>
+          <li>
+            <a href="/docs/javascript.html">Javascript</a>
+          </li>
+          <li>
+            <a href="/docs/requirements.html">Technical requirements</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up-your-computer.html">Setting up your computer</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up.html">Setting up</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Layout</a>
+      <ul>
+          <li>
+            <a href="/docs/page-numbers.html">Page numbers</a>
+          </li>
+          <li>
+            <a href="/docs/print-layout.html">Print layout</a>
+          </li>
+          <li>
+            <a href="/docs/running-heads-in-print.html">Running heads</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Output</a>
+      <ul>
+          <li>
+            <a href="/docs/print-output.html">Print output</a>
+          </li>
+      </ul>
+    </li>
+</ul>
+                        </li>
+                    </ul>
+  <ol class="">
+  </ol>
+            </div><!--.nav-list-->
+            <div class="widgets">
+            </div><!--.widgets-->
+    </div><!--#nav-->
+    <div id="footer" dir="ltr">
+        <div class="footer-content">
+            <div class="footer-logos">
+                <a href="http://core-econ.org">
+                    <img src="../assets/coreecon_logo_bw.png">
+                </a>
+            </div>
+            <div class="footer-text">
+            </div>
+            <div class="footer-licence">
+                <a title="Licensed under Creative Commons BY NC ND" alt="Licensed under Creative Commons BY NC ND" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="../assets/cc-byncnd.png"></a>
+                <br />
+            </div>
+        </div><!--.footer-content-->
+    </div><!--#footer-->
+    <script src="../assets/js/bundle.js"></script>
+    <style>
+        .js-mcq .mcq-correct .mcq-feedback:before {
+            content: "Correct!";
+        }
+        .js-mcq .mcq-incorrect .mcq-feedback:before {
+            content: "Incorrect";
+        }
+        .js-mcq .mcq-partially-correct .mcq-feedback:before {
+            content: "You haven't selected all the correct answers.";
+        }
+    </style>
+</div><!--#wrapper-->
+</body>
+</html>

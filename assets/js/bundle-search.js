@@ -374,7 +374,7 @@ var index = elasticlunr(function () {
   index.addDoc({
     id: 12,
     title: "Experiment 4: ",
-    content: "\nExperiment 4 Paper airplanes factory\n\nThis section is under development and will be in the next release of Experiments in Economics: Laboratory Projects\n\nLearning objectives\n\n\n  Key concepts\n\n  \n    Concepts needed for this project: mean, median, and decile.\n    Concepts introduced in this project: variance, frequency table, correlation and correlation coefficient, causation, and spurious correlation.\n  \n\n\nIntroduction\n",
+    content: "\nExperiment 4 Dictator Game\n\nLearning objectives\n\nThis activity will take your students to concepts mentioned in units 3 and 4. Some of them are:\n\n\n  Key concepts\n\n  \n    Altruism\n    Revealed preferences\n    Marginal utility\n  \n\n\nIntroduction\n\nIs it required a coercive mechanism for humans to share resources with others? Do people take advantage of their situation whenever it’s possible? The answer to these questions may illustrate a lot about human nature.\n\nIndividuals have an associated utility for each quantity of goods they get. Usually, an increase in the consumption good leads to an increase in utility (smaller increase for higher levels of goods) (Unit 3.2). This means that individuals tend to prefer bigger amounts of goods. However, increasing own benefits may reduce those of others. Even more, sometimes people are willing to assume a cost to help others. This is called altruistic preferences (Unit 4.4). Lab experiments try to study the order of individual preferences by observing human behavior. This method is called revealed preference study (Unit 4.8).\n\nThe present experiment exposes an individual to a direct interaction with another person. Decisions made by a subject affect the state of the other member of its pair. The person has to decide how much to reduce its utility not to affect the other’s. Theory proposes that a person will get as much as it can whenever there are no consequences over its benefits.\n\n\n  Get started\n\n\n",
   });
   
   
@@ -383,7 +383,7 @@ var index = elasticlunr(function () {
   index.addDoc({
     id: 13,
     title: " book text 04-02.html",
-    content: "Experiment 4: Running the experiment\n\nProtocol\n\nThis will contain the experiment protocol.\n\nClass discussion\n\nThis will have a suggested format to present the results and boost the discussion.\n",
+    content: "Experiment 4: Running the experiment\n\nProtocol\n\nYou have to login to classEx before you begin your experiment. If you don’t have credentials, you can acquire them for free. Follow the instructions in the introduction to classEx. This section explains how to configure your participants’ password as well.\n\nThe dictator game is placed in the Standard Games section. You should activate the Play button to start configuring the experiment. Once you enter, you will see the administrator page shown in figure 4.1.\n\nFigure 4.1. Admin page of the Dictator Game\n\n\nThere are two kinds of participants. Red participants will have an endowment they may choose to distribute between them and their correspondent green partner. To configure the endowment, you may go to the parameters section shown in figure 4.2.\nFigure 4.2. Admin page of the Dictator Game\n\n\n\nYour participants must have access to a web browser to participate. They can use their cellphones if they want. You should read the next instructions then:\n\n  You will be grouped in pairs.\n  Some of you will be able to send part of your endowment to another person in this classroom.\n  Some others will make no decision; however, you will have to guess how much will your partner send you.\n  Once I start the activity, you will enter to the link I give you; and, you will have to enter the credentials I tell you to participate.\nSince this is a short game, you will see how many participants take their decisions in your administrator page shown in figure 4.3.\n\n\nFigure 4.3. Participants who take decisions are updated in real time\n\n\nOnce every participant takes their decision you may discuss the results immediately with your students.\nl.\n\nClass discussion\n\nClassEx allows you to have immediate results for discussion in class. The platform generates graphs so you can quickly observe the frequencies of transactions between students as shown in figure 4.4. To access this information activate the display results button.\n\nFigure 4.4. Distribution of transactions between participants\n\n\nYou can observe the distribution of expectations as well. See figure 4.5.\n\nFigure 4.5. Distribution of expectations between participants\n\n\nIf you prefer tables, classEx lets you visualize a records table like the one shown in figure 4.6. To find it look in the Data tab, and Show data option.\n\nFigure 4.6. Records table\n\nWith this information you may stimulate discussion with the next questions.\n\n\n  \n    \n      Aspect\n      Marginal utility\n    \n  \n  \n    \n      Learning\n      This question refers to the social interaction component of the activity. Some of the students may have kept less than their entire endowment. This question explores the multiple elements that affect marginal utility. Sometimes, benefits are not material. Was it because they felt good by giving something? Was it because they felt bad by keeping everything?\n    \n    \n      Question\n      Why didn’t some of you transfer one unit (enough amount to buy some little snack) less to your partner?\n    \n  \n\n\n\n  \n    \n      Aspect\n      Identifiable interactions\n    \n  \n  \n    \n      Learning\n      This is a question to explore hypothetical variations to the experiment. Students may approach it from a theoretical perspective; and, they would find that people still keeps their full endowment. Participants of the experiment may conjecture what they think they would make under this situation. Discussing a dialog between theory and intuition may generate critical reasoning and creative competences.\n    \n    \n      Question\n      What would have happened if you had had your partner in front of you when you took the decision?\n    \n  \n\n\n\n  \n    \n      Aspect\n      Public policy\n    \n  \n  \n    \n      Learning\n      One of the implications of this experiment suggests that expensive institutions are not always required to reduce situations like state corruption. Students should get to the open question “What conditions make people avoid taking advantage even if there is no punishment or violation of any nature?” This points to un understanding about how policy oriented research operates.\n    \n    \n      Question\n      State corruption is a problem in many countries. How could you improve audit programs to reduce this kind of situation?\n    \n  \n\n\n\n  Materials and resources\n\n\n",
   });
   
   
@@ -392,7 +392,7 @@ var index = elasticlunr(function () {
   index.addDoc({
     id: 14,
     title: " book text 04-03.html",
-    content: "Experiment 4: Materials and resources\n\nThis section is under development and will be in the next release of Experiments in Economics: Laboratory Projects\n\nTemplates and documents\n\nTemplates here.\n\nExternal resources\n\nExternal resources here.\n",
+    content: "Experiment 4: Materials and resources\n\nThis activity requires your students to have access to a web browser. Participants may use smartphones or laptops. The experimenter shall have access to the platform as well. The discussion phase may benefit from a large projection of the graphs.\n\nTemplates and documents\n\nNo more materials are required since this is a virtual experiment.\n\nExternal resources\n\nYou need access to classEx virtual platform to configure the experiment. If you don’t have it already, you will find information in the introduction to classEx section.\n",
   });
   
   
@@ -726,21 +726,21 @@ var store = [
   
     {
       'title': "Experiment 4: ",
-      'excerpt': "This section is under development and will be in the next release of Experiments in Economics: Laboratory Projects Learning&hellip;",
+      'excerpt': "This activity will take your students to concepts mentioned in units 3 and 4. Some of them are:&hellip;",
       'url': "book/text/04-01.html"
     },
     
   
     {
       'title': " book text 04-02.html",
-      'excerpt': "This will contain the experiment protocol.\n\nClass discussion\n\n",
+      'excerpt': "You have to login to classEx before you begin your experiment. If you don’t have credentials, you can acquire&hellip;",
       'url': "book/text/04-02.html"
     },
     
   
     {
       'title': " book text 04-03.html",
-      'excerpt': "This section is under development and will be in the next release of Experiments in Economics: Laboratory Projects Templates&hellip;",
+      'excerpt': "This activity requires your students to have access to a web browser. Participants may use smartphones or laptops. The experimenter&hellip;",
       'url': "book/text/04-03.html"
     },
     

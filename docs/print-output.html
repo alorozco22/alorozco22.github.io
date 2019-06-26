@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>
+    Experiments in economics: Laboratory projects: Print output
+    </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Print output" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.core-econ.org/docs/print-output.html" />
+    <meta property="og:image" content="http://www.core-econ.org/_docs/images/web/" />
+        <link rel="stylesheet" type="text/css" media="all" href="/book/styles/web.css" />
+<script id="MathJax"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script id="MathJaxConfig" type="text/x-mathjax-config" >
+MathJax.Hub.Config({
+    messageStyle: "none",
+    "HTML-CSS": {
+        availableFonts: [], // force use of webFont
+        webFont: "Gyre-Pagella",
+        scale: 90,
+        styles: {
+            ".MathJax [style*=border-top-width]": {
+                "border-top-width": "0.5pt ! important"
+            }
+        }
+    }
+});
+</script>
+<script>
+WebFontConfig = {
+     google: {
+         families: ['Amiri:400,400i,700', 'Source Sans Pro:400,700,700:latin-ext']
+     }
+};
+(function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js';
+    wf.async = true;
+    s.parentNode.insertBefore(wf, s);
+})(document)
+</script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71347024-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-106812057-1');
+</script>
+</head>
+<body class="_docs chapter">
+<div class="notification warning-testing-site">
+    You're looking at a testing site for Experiments in economics: Laboratory projects, not the real, live site.
+</div>
+<div id="wrapper">
+<div class="masthead">
+    <ul>
+        <li class="masthead-series-name"><a href="../index.html">Experiments in economics: Laboratory projects</a></li>
+    </ul>
+</div><!--.masthead-->
+<div class="nav-buttons">
+	<a class="nav-back-button">←</a>
+	<a class="nav-button" href="#nav">Contents</a>
+</div>
+    <div class="chapter-opener-image chapter-opener-image-none">
+    </div>
+	<div id="content">
+<h1 class="no_toc" id="print-output">Print output</h1>
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#quick-output" id="markdown-toc-quick-output">Quick output</a></li>
+  <li><a href="#detail" id="markdown-toc-detail">Detail</a>    <ul>
+      <li><a href="#creating-pdf-files-with-the-prince-gui" id="markdown-toc-creating-pdf-files-with-the-prince-gui">Creating PDF files with the Prince GUI</a></li>
+      <li><a href="#creating-pdfs-with-prince-from-the-command-line" id="markdown-toc-creating-pdfs-with-prince-from-the-command-line">Creating PDFs with Prince from the command line</a></li>
+      <li><a href="#refining-print-layout" id="markdown-toc-refining-print-layout">Refining print layout</a>        <ul>
+          <li><a href="#faster-print-refinement" id="markdown-toc-faster-print-refinement">Faster print refinement</a></li>
+        </ul>
+      </li>
+      <li><a href="#managing-hyphenation-in-prince" id="markdown-toc-managing-hyphenation-in-prince">Managing hyphenation in Prince</a></li>
+    </ul>
+  </li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>We use <a href="http://princexml.com/">PrinceXML</a> to turn Jekyll’s HTML into beautiful, print-ready book files. We haven’t found anything as good as Prince, so we reckon it’s worth its price tag. And you can use the trial version to get your print output perfect before committing to the price. So our CSS files for print are designed specifically for Prince.</p>
+<p>If you want to learn about using CSS to control print output using Prince, <a href="http://www.smashingmagazine.com/2015/01/designing-for-print-with-css/">this is a great tutorial</a>.</p>
+<h2 id="quick-output">Quick output</h2>
+<p>Run the template’s <code class="language-r highlighter-rouge"><span class="o">-</span><span class="n">pdf</span></code> script for your operating system. For these to work, you must already have Jekyll and Prince installed and working.</p>
+<ul>
+  <li>On Windows, run <code class="language-r highlighter-rouge"><span class="n">win</span><span class="o">-</span><span class="n">print</span><span class="o">-</span><span class="n">pdf.bat</span></code> by double-clicking it from your file explorer.</li>
+  <li>On Linux, run <code class="language-r highlighter-rouge"><span class="n">linux</span><span class="o">-</span><span class="n">print</span><span class="o">-</span><span class="n">pdf.sh</span></code>. You may have to run it from a terminal, and first enter <code class="language-r highlighter-rouge"><span class="n">chmod</span><span class="w"> </span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="n">linux</span><span class="o">-</span><span class="n">print</span><span class="o">-</span><span class="n">pdf.sh</span></code> to give it permissions, then <code class="language-r highlighter-rouge"><span class="n">bash</span><span class="w"> </span><span class="n">linux</span><span class="o">-</span><span class="n">print</span><span class="w"> </span><span class="n">pdf.sh</span></code>.</li>
+  <li>On Mac OSX, double-click <code class="language-r highlighter-rouge"><span class="n">mac</span><span class="o">-</span><span class="n">print</span><span class="o">-</span><span class="n">pdf.command</span></code> in Finder. You may need to give the file permission to run first. To do this, in a Terminal in the same folder as the script, type <code class="language-r highlighter-rouge"><span class="n">chmod</span><span class="w"> </span><span class="o">+</span><span class="n">x</span><span class="w"> </span><span class="n">mac</span><span class="o">-</span><span class="n">print</span><span class="o">-</span><span class="n">pdf.command</span></code>.</li>
+</ul>
+<p>The same applies to the other scripts (e.g. <code class="language-r highlighter-rouge"><span class="o">-</span><span class="n">screen</span><span class="o">-</span><span class="n">pdf</span></code>).</p>
+<h2 id="detail">Detail</h2>
+<h3 id="creating-pdf-files-with-the-prince-gui">Creating PDF files with the Prince GUI</h3>
+<ol>
+  <li>Find your book’s HTML files in your <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code> folder. (Remember to run Jekyll locally to generate the latest version; if you’re getting your HTML from a GitHub repo’s <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code> folder, trust that the last contributor synced up-to-date, reliable HTML generated by their local Jekyll instance.)</li>
+  <li>Drag the HTML files into Prince. Make sure they’re in the right order. Only include the files you need in print. For instance, you’ll usually leave out <code class="language-r highlighter-rouge"><span class="n">index.html</span></code>. You’ll usually only include <code class="language-r highlighter-rouge"><span class="n">cover.html</span></code> when creating a PDF ebook.</li>
+  <li>Tick ‘Merge all…’ and <strong>specify an output file</strong> location and name. Do not let Prince output to your <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code> folder. (If you skip this, Prince will output to your <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code> folder, which will cause permissions issues when you want to modify or delete the file, because Jekyll owns the <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code> folder and can overwrite it, and because Git will try to commit and sync the output PDF, which you probably don’t want.)</li>
+  <li>Prince will find your book’s print CSS, which you specified in <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">config.yml</span></code>. If you want a PDF with a completely different CSS file, either:
+    <ul>
+      <li>change it in <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">config.yml</span></code> and restart Jekyll to update your files with the new config, or</li>
+      <li>leave it blank (<code class="language-r highlighter-rouge"><span class="n">stylesheet</span><span class="o">-</span><span class="n">print</span><span class="o">:</span><span class="w"> </span><span class="s2">""</span></code>) and manually add the output CSS to Prince.</li>
+    </ul>
+  </li>
+  <li>Click Convert.</li>
+</ol>
+<blockquote>
+  <p>Tech detail: Our default HTML <code class="language-r highlighter-rouge"><span class="n">head</span></code> includes links to both the screen stylesheet and the print stylesheet specified in <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">config.yml</span></code>. Prince knows which one to use because they’re specified with <code class="language-r highlighter-rouge"><span class="n">media</span><span class="o">=</span><span class="s2">"screen"</span></code> and <code class="language-r highlighter-rouge"><span class="n">media</span><span class="o">=</span><span class="s2">"print"</span></code>.</p>
+</blockquote>
+<h3 id="creating-pdfs-with-prince-from-the-command-line">Creating PDFs with Prince from the command line</h3>
+<p>For general instructions, see <a href="http://www.princexml.com/doc/command-line/">the official PrinceXML user guide</a>. We like to use this workflow:</p>
+<ol>
+  <li>
+    <p>In each book’s folder (alongside the markdown) we keep a file called <code class="language-r highlighter-rouge"><span class="n">file</span><span class="o">-</span><span class="n">list</span></code>. The <code class="language-r highlighter-rouge"><span class="n">file</span><span class="o">-</span><span class="n">list</span></code> file is just a list of the HTML files that must be included in the print PDF. E.g.:</p>
+    <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="m">0-1</span><span class="o">-</span><span class="n">titlepage.html</span><span class="w">
+</span><span class="m">0-2</span><span class="o">-</span><span class="n">copyright.html</span><span class="w">
+</span><span class="m">0-3</span><span class="o">-</span><span class="n">contents.html</span><span class="w">
+</span><span class="m">1</span><span class="n">.html</span><span class="w">
+</span><span class="m">2</span><span class="n">.html</span><span class="w">
+</span><span class="m">3</span><span class="n">.html</span><span class="w">
+</span></code></pre></div>    </div>
+    <p>If you include the list of files for a given output format in <code class="language-r highlighter-rouge"><span class="n">meta.yml</span></code>, this file is automatically generated by the default <code class="language-r highlighter-rouge"><span class="n">file</span><span class="o">-</span><span class="n">list</span></code> file in our template.</p>
+  </li>
+  <li>At your command prompt, navigate to the book’s folder in <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code>. (With the right settings, you can launch your command line app in the right folder from a file explorer in <a href="http://lifehacker.com/5989434/quickly-open-a-command-prompt-from-the-windows-explorer-address-bar">Windows</a>, <a href="http://lifehacker.com/launch-an-os-x-terminal-window-from-a-specific-folder-1466745514">Mac</a> and <a href="http://www.howtogeek.com/192865/how-to-open-terminal-to-a-specific-folder-in-ubuntus-file-browser/">Linux</a>.)</li>
+  <li>At the prompt, type <code class="language-r highlighter-rouge"><span class="n">prince</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">file</span><span class="o">-</span><span class="n">list</span><span class="w"> </span><span class="o">-</span><span class="n">o</span><span class="w"> </span><span class="o">/</span><span class="n">temp</span><span class="o">/</span><span class="n">filename.pdf</span></code>.</li>
+</ol>
+<blockquote class="box">
+  <p>In that last step, <code class="language-r highlighter-rouge"><span class="o">/</span><span class="n">temp</span></code> is an existing folder at the root of your drive (e.g. <code class="language-r highlighter-rouge"><span class="n">C</span><span class="o">:/</span><span class="n">temp</span></code> if you’re working on your C drive in Windows) and <code class="language-r highlighter-rouge"><span class="n">filename</span></code> is a sensible file name. If you just used <code class="language-r highlighter-rouge"><span class="n">filename.pdf</span></code> without the folder path, the PDF would be saved to the same folder as the HTML in <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code>. We don’t recommend this because Jekyll will overwrite that whole folder if you build new HTML, and you’ll lose your PDF.</p>
+</blockquote>
+<h3 id="refining-print-layout">Refining print layout</h3>
+<p>You will doubtless want to refine your print layout by editing your markdown and adding custom CSS to the <code class="language-r highlighter-rouge"><span class="n">print.scss</span></code> file in your theme.</p>
+<p>For instance, to save widows and orphans, when using the Classic theme, you can tighten letter-spacing by adding <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">:</span><span class="n">.tighten</span><span class="m">-5</span><span class="p">}</span></code> and <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">:</span><span class="n">.loosen</span><span class="m">-5</span><span class="p">}</span></code> tags to the lines after paragraphs. The number in the tag refers to how many thousands of an em you’re affecting letter-spacing by. For instance, <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">:</span><span class="n">.tighten</span><span class="m">-10</span><span class="p">}</span></code> will tighten letter-spacing by 10/1000 em. In good typography, you should avoid tightening or loosening by more than 10/1000 wherever possible.</p>
+<p>And to add manual hyphens to improve spacing, use discretionary hyphens (aka soft hyphens) by adding the HTML entity <code class="language-r highlighter-rouge"><span class="o">&amp;</span><span class="n">shy</span><span class="p">;</span></code> where you want the soft hyphen.</p>
+<h4 id="faster-print-refinement">Faster print refinement</h4>
+<p>When refining print layout (e.g. fixing widows and orphans) with the EBWorkflow, this is happening:</p>
+<ol>
+  <li>You edit the markdown</li>
+  <li>Jekyll generates new HTML</li>
+  <li>You convert to PDF in Prince</li>
+  <li>You open the new PDF to see your changes.</li>
+</ol>
+<p>There are two delays in this process:</p>
+<ol>
+  <li>Jekyll can take several seconds to regenerate the entire book (even with <code class="language-r highlighter-rouge"><span class="o">--</span><span class="n">incremental</span></code> enabled)</li>
+  <li>You have to click ‘Convert’ and Prince must regenerate the file(s)</li>
+  <li>If your PDF viewer locks the file you’re viewing, you have to close it before generating a new PDF in Prince.</li>
+</ol>
+<p>To speed this up:</p>
+<ol>
+  <li>
+    <p>Temporarily stop Jekyll generating any files you aren’t working on. In <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">config.yml</span></code>, add a line that excludes those files. In this example, I’ve listed the CSS folder and all my book’s chapters, and them commented out with <code class="language-r highlighter-rouge"><span class="c1">#</span></code> the one I’m working on, so that Jekyll does regenerate that:</p>
+    <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Jekyll will ignore these files and folders. </span><span class="w">
+</span><span class="c1"># Useful for temporarily speeding up processing for particular files.</span><span class="w">
+</span><span class="n">exclude</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+</span><span class="n">css</span><span class="p">,</span><span class="w">
+</span><span class="n">book</span><span class="o">-</span><span class="n">one</span><span class="o">/</span><span class="m">0-0</span><span class="o">-</span><span class="n">cover.md</span><span class="p">,</span><span class="w"> 
+</span><span class="n">book</span><span class="o">-</span><span class="n">one</span><span class="o">/</span><span class="m">0-1</span><span class="o">-</span><span class="n">half</span><span class="o">-</span><span class="n">title.md</span><span class="p">,</span><span class="w"> 
+</span><span class="n">book</span><span class="o">-</span><span class="n">one</span><span class="o">/</span><span class="m">0-2</span><span class="o">-</span><span class="n">titlepage.md</span><span class="p">,</span><span class="w"> 
+</span><span class="n">book</span><span class="o">-</span><span class="n">one</span><span class="o">/</span><span class="m">0-3</span><span class="o">-</span><span class="n">copyright.md</span><span class="p">,</span><span class="w">
+</span><span class="n">book</span><span class="o">-</span><span class="n">one</span><span class="o">/</span><span class="m">0-4</span><span class="o">-</span><span class="n">contents.md</span><span class="p">,</span><span class="w">
+</span><span class="c1">#book-one/1.md,</span><span class="w">
+</span><span class="n">book</span><span class="o">-</span><span class="n">one</span><span class="o">/</span><span class="m">2</span><span class="n">.md</span><span class="p">,</span><span class="w">
+</span><span class="n">book</span><span class="o">-</span><span class="n">one</span><span class="o">/</span><span class="m">3</span><span class="n">.md</span><span class="p">,</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>Using Prince there isn’t a universal way to speed up conversion, except to only convert the files you really need to be working on. For instance, in your <code class="language-r highlighter-rouge"><span class="n">file</span><span class="o">-</span><span class="n">list</span></code>, comment out files you’re not working on; or if you’re generating your <code class="language-r highlighter-rouge"><span class="n">file</span><span class="o">-</span><span class="n">list</span></code> from a list in <code class="language-r highlighter-rouge"><span class="n">meta.yml</span></code>, comment out the relevant lines there. (Also, if you’ve used Javascript in your HTML, that can slow Prince down. <a href="https://github.com/electricbookworks/electric-book-workflow/blob/gh-pages/template/_includes/header.html">We wrap scripts, like Google Analytics tags, in a test that checks for Prince</a>.)</li>
+  <li>Use a PDF Viewer that <a href="http://superuser.com/questions/599442/pdf-viewer-that-handles-live-updating-of-pdf-doesnt-lock-the-file">doesn’t lock the file</a>.
+    <ul>
+      <li>On Windows, <a href="http://www.sumatrapdfreader.org/free-pdf-reader.html">Sumatra</a> is perfect for this, unlike Acrobat and Windows Preview, which locks the file. If you edit/regenerate a PDF it has open, Sumatra will allow that to happen and will automatically reload the new file, at the same page you had open.</li>
+      <li>On Mac OSX, Preview does the same, though we’ve found it doesn’t open the regenerated file to the page you were on, sending you back to the start of the book, which is a pain. A much better alternative on OSX is <a href="http://skim-app.sourceforge.net/">Skim</a>, an open-source PDF reader. In its Preferences &gt; Sync, set Skim to watch for file changes and update automatically. You may also want to set PDFs to open to the last viewed page in Preferences &gt; General.</li>
+    </ul>
+  </li>
+</ol>
+<h3 id="managing-hyphenation-in-prince">Managing hyphenation in Prince</h3>
+<p>Our default stylesheets ask Prince to hyphenate paragraphs and lists (<code class="language-r highlighter-rouge"><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">ul</span><span class="p">,</span><span class="w"> </span><span class="n">ol</span><span class="p">,</span><span class="w"> </span><span class="n">dl</span></code>), with a few exceptions (such as text on the title and contents pages). Prince includes a range of hyphenation dictionaries by default, which do a good job. However, you might need to add dictionaries or lists of specific words that Prince doesn’t support. You can find <code class="language-r highlighter-rouge"><span class="n">.dic</span></code> files online for <a href="http://www.ctan.org/tex-archive/language/hyph-utf8/tex/generic/hyph-utf8/patterns/txt">various languages</a> and specialities, or you can compile your own.</p>
+<p>We provide a blank <code class="language-r highlighter-rouge"><span class="n">.dic</span></code> file for you to add your own list of hyphenation rules to. It is at <code class="language-r highlighter-rouge"><span class="n">css</span><span class="o">/</span><span class="n">dictionaries</span><span class="o">/</span><span class="n">hyph.dic</span></code>. Our <code class="language-r highlighter-rouge"><span class="n">print.css</span></code> asks Prince to look here when hyphenating.</p>
+<p>A <code class="language-r highlighter-rouge"><span class="n">.dic</span></code> file is a plain-text file with one word or word-fragment on each line. Each one is called a pattern.</p>
+<ul>
+  <li>If the pattern starts with a <code class="language-r highlighter-rouge"><span class="n">.</span></code>, it will apply to, or match, any word that starts with that pattern. E.g. <code class="language-r highlighter-rouge"><span class="n">.foo</span></code> will match the words ‘food’ and ‘foobar’ but not ‘fastfood’.</li>
+  <li>If the pattern ends with a <code class="language-r highlighter-rouge"><span class="n">.</span></code>, it will apply to any word that ends with that pattern. E.g. <code class="language-r highlighter-rouge"><span class="n">port.</span></code> will match ‘port’ and ‘sport’ but not ‘portico’.</li>
+  <li>Thus, if the pattern starts <em>and</em> ends with a <code class="language-r highlighter-rouge"><span class="n">.</span></code>, it will apply to only that pattern exactly. E.g. <code class="language-r highlighter-rouge"><span class="n">.port.</span></code> will only ever match ‘port’.</li>
+</ul>
+<p>To show where a word or word-fragment can hyphenate, you add digits (1 to 9) to the pattern. The digits have special meanings:</p>
+<ul>
+  <li>Insert odd digits (1, 3, 5, 7, 9) where the word may hyphenate.</li>
+  <li>Insert even digits (2, 4, 6, 8) where the word should not hyphenate.</li>
+  <li>The higher the number, the more important the rule. That is, a <code class="language-r highlighter-rouge"><span class="m">1</span></code> says ‘hyphenate here if you must’, but a <code class="language-r highlighter-rouge"><span class="m">9</span></code> says ‘this is the best place to hyphenate’. A 2 says ‘don’t hyphenate here if you can help it’, but an <code class="language-r highlighter-rouge"><span class="m">8</span></code> says ‘Do not, not, not hyphenate here.’</li>
+</ul>
+<p>For user discussion, see <a href="http://www.princexml.com/forum/topic/542/prince-hyphenate-patterns-none-url-patterns-url">the Prince forums here</a>: If you need to hack Prince’s built-in hyphenation dictionaries more deeply, see <a href="http://www.princexml.com/forum/topic/1474/prince-and-hyphenation">this forum post</a>.</p>
+	</div><!--#content-->
+    <div id="nav" class="non-printing">
+            <h2>Documentation</h2>
+            <div class="nav-list">
+                    <ol class="nav-series-home">
+                        <li><a href="../index.html">Home</a></li>
+                    </ol>
+                    <ul>
+                        <li><a href="../docs">Docs</a>
+<ul>
+    <li class="has-children"><a>Editing</a>
+      <ul>
+          <li>
+            <a href="/docs/bibliography.html">Bibliography</a>
+          </li>
+          <li>
+            <a href="/docs/boxes-and-box-like-features.html">Boxes</a>
+          </li>
+          <li>
+            <a href="/docs/classes.html">Supported classes</a>
+          </li>
+          <li>
+            <a href="/docs/definitions.html">Definitions</a>
+          </li>
+          <li>
+            <a href="/docs/dialogue.html">Dialogue</a>
+          </li>
+          <li>
+            <a href="/docs/figures.html">Figures</a>
+          </li>
+          <li>
+            <a href="/docs/glossary.html">Glossary</a>
+          </li>
+          <li>
+            <a href="/docs/house-style.html">House style</a>
+          </li>
+          <li>
+            <a href="/docs/images.html">Images</a>
+          </li>
+          <li>
+            <a href="/docs/include-theme-legend.html">Theme legends</a>
+          </li>
+          <li>
+            <a href="/docs/markdown.html">Markdown</a>
+          </li>
+          <li>
+            <a href="/docs/mathematics.html">Mathematics</a>
+          </li>
+          <li>
+            <a href="/docs/multiple-choice-questions.html">Questions</a>
+          </li>
+          <li>
+            <a href="/docs/notes.html">Footnotes, endnotes and sidenotes</a>
+          </li>
+          <li>
+            <a href="/docs/showing-links-and-cross-references-in-print.html">Links and cross-refs</a>
+          </li>
+          <li>
+            <a href="/docs/slides.html">Slidelines</a>
+          </li>
+          <li>
+            <a href="/docs/superscripts-and-subscripts.html">Superscripts and subscripts</a>
+          </li>
+          <li>
+            <a href="/docs/tables.html">Tables</a>
+          </li>
+          <li>
+            <a href="/docs/theme-key.html">Theme keys</a>
+          </li>
+          <li>
+            <a href="/docs/tocs.html">Tables of contents</a>
+          </li>
+          <li>
+            <a href="/docs/translations.html">Translations</a>
+          </li>
+          <li>
+            <a href="/docs/videos.html">Videos</a>
+          </li>
+          <li>
+            <a href="/docs/web-navigation.html">Navigation</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Technical</a>
+      <ul>
+          <li>
+            <a href="/docs/converting-manuscript-to-markdown.html">Converting manuscript to markdown</a>
+          </li>
+          <li>
+            <a href="/docs/external-media.html">External media</a>
+          </li>
+          <li>
+            <a href="/docs/javascript.html">Javascript</a>
+          </li>
+          <li>
+            <a href="/docs/requirements.html">Technical requirements</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up-your-computer.html">Setting up your computer</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up.html">Setting up</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Layout</a>
+      <ul>
+          <li>
+            <a href="/docs/page-numbers.html">Page numbers</a>
+          </li>
+          <li>
+            <a href="/docs/print-layout.html">Print layout</a>
+          </li>
+          <li>
+            <a href="/docs/running-heads-in-print.html">Running heads</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Output</a>
+      <ul>
+          <li>
+            <a href="/docs/print-output.html">Print output</a>
+          </li>
+      </ul>
+    </li>
+</ul>
+                        </li>
+                    </ul>
+  <ol class="">
+  </ol>
+            </div><!--.nav-list-->
+            <div class="widgets">
+            </div><!--.widgets-->
+    </div><!--#nav-->
+    <div id="footer" dir="ltr">
+        <div class="footer-content">
+            <div class="footer-logos">
+                <a href="http://core-econ.org">
+                    <img src="../assets/coreecon_logo_bw.png">
+                </a>
+            </div>
+            <div class="footer-text">
+            </div>
+            <div class="footer-licence">
+                <a title="Licensed under Creative Commons BY NC ND" alt="Licensed under Creative Commons BY NC ND" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="../assets/cc-byncnd.png"></a>
+                <br />
+            </div>
+        </div><!--.footer-content-->
+    </div><!--#footer-->
+    <script src="../assets/js/bundle.js"></script>
+    <style>
+        .js-mcq .mcq-correct .mcq-feedback:before {
+            content: "Correct!";
+        }
+        .js-mcq .mcq-incorrect .mcq-feedback:before {
+            content: "Incorrect";
+        }
+        .js-mcq .mcq-partially-correct .mcq-feedback:before {
+            content: "You haven't selected all the correct answers.";
+        }
+    </style>
+</div><!--#wrapper-->
+</body>
+</html>

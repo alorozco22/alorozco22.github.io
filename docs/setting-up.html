@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>
+    Experiments in economics: Laboratory projects: Setting up
+    </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Setting up" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.core-econ.org/docs/setting-up.html" />
+    <meta property="og:image" content="http://www.core-econ.org/_docs/images/web/" />
+        <link rel="stylesheet" type="text/css" media="all" href="/book/styles/web.css" />
+<script id="MathJax"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script id="MathJaxConfig" type="text/x-mathjax-config" >
+MathJax.Hub.Config({
+    messageStyle: "none",
+    "HTML-CSS": {
+        availableFonts: [], // force use of webFont
+        webFont: "Gyre-Pagella",
+        scale: 90,
+        styles: {
+            ".MathJax [style*=border-top-width]": {
+                "border-top-width": "0.5pt ! important"
+            }
+        }
+    }
+});
+</script>
+<script>
+WebFontConfig = {
+     google: {
+         families: ['Amiri:400,400i,700', 'Source Sans Pro:400,700,700:latin-ext']
+     }
+};
+(function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js';
+    wf.async = true;
+    s.parentNode.insertBefore(wf, s);
+})(document)
+</script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71347024-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-106812057-1');
+</script>
+</head>
+<body class="_docs chapter">
+<div class="notification warning-testing-site">
+    You're looking at a testing site for Experiments in economics: Laboratory projects, not the real, live site.
+</div>
+<div id="wrapper">
+<div class="masthead">
+    <ul>
+        <li class="masthead-series-name"><a href="../index.html">Experiments in economics: Laboratory projects</a></li>
+    </ul>
+</div><!--.masthead-->
+<div class="nav-buttons">
+	<a class="nav-back-button">←</a>
+	<a class="nav-button" href="#nav">Contents</a>
+</div>
+    <div class="chapter-opener-image chapter-opener-image-none">
+    </div>
+	<div id="content">
+<h1 class="no_toc" id="setting-up">Setting up</h1>
+<ul id="markdown-toc">
+  <li><a href="#technical-overview" id="markdown-toc-technical-overview">Technical overview</a></li>
+  <li><a href="#folder-repo-structure" id="markdown-toc-folder-repo-structure">Folder (repo) structure</a></li>
+  <li><a href="#using-the-template" id="markdown-toc-using-the-template">Using the template</a></li>
+  <li><a href="#creating-a-new-book" id="markdown-toc-creating-a-new-book">Creating a new book</a></li>
+  <li><a href="#creating-book-content" id="markdown-toc-creating-book-content">Creating book content</a>    <ul>
+      <li><a href="#set-page-number-one" id="markdown-toc-set-page-number-one">Set ‘page number one’</a></li>
+      <li><a href="#file-naming" id="markdown-toc-file-naming">File naming</a></li>
+    </ul>
+  </li>
+  <li><a href="#the-images-folder" id="markdown-toc-the-images-folder">The <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder</a></li>
+</ul>
+<h2 id="technical-overview">Technical overview</h2>
+<p>To set up the workflow, you still have to have some technical expertise. Once it’s set up, non-technical editorial team members with a couple of hours training (taught or self-taught) can add and edit books in it.</p>
+<p>The technical team members who run the workflow need to be familiar with a few concepts and tools:</p>
+<ul>
+  <li><strong>HTML and CSS</strong>: the fundamental building blocks of almost all digital content.</li>
+  <li><strong>Markdown</strong>: a simple, plain-text shortcut for creating HTML. (The original <a href="http://daringfireball.net/projects/markdown/syntax">Markdown syntax reference</a> is the easiest intro to basic markdown. We use a markdown variant called <a href="http://kramdown.gettalong.org">kramdown</a>. It lets us use attributes like classes, has a stricter syntax, and allows adding of IDs to elements.</li>
+  <li><strong>Sass</strong>: a way to create complex CSS from simple rules.</li>
+  <li><strong>Jekyll</strong>: software that turns markdown and Sass into HTML and CSS. (To learn about Jekyll, <a href="http://jekyllrb.com/">start here</a>. If you’re installing it on Windows, <a href="http://jekyll-windows.juthilo.com/">you’ll also need this guide</a>.) From version 0.4.0, our template requires at least Jekyll 3.2.</li>
+  <li><strong>Bundler</strong>: software that manages which version of Jekyll (and other Ruby gems) to apply to a project.</li>
+  <li><strong>Git</strong>: software for tracking a team’s changes and syncing them with a remote server. We like to use <a href="http://github.com">GitHub</a> and <a href="http://bitbucket.org">Bitbucket</a> as our remotes.</li>
+  <li><strong>Sigil</strong>: an open-source epub editor, where we quickly assemble ebooks.</li>
+  <li><strong>PrinceXML</strong>: an app for creating PDFs from HTML and CSS (Prince is the only proprietary part of this stack).</li>
+</ul>
+<p>To use the workflow on your own machine, you must have the following software installed:</p>
+<ul>
+  <li>Ruby (ideally, via a Ruby version manager like RVM or Homebrew)</li>
+  <li>Bundler (manages your Ruby gem versions)</li>
+  <li>Jekyll (generates your source HTML)</li>
+  <li>PrinceXML (for generating PDFs from source HTML)</li>
+  <li>Sigil (for finishing epubs)</li>
+  <li>Git (or similar, if you want good version control).</li>
+</ul>
+<h2 id="folder-repo-structure">Folder (repo) structure</h2>
+<p>A workflow folder (often tracked in Git as a repo) usually contains a series of related books. Its folders and files follow the <a href="http://jekyllrb.com/docs/structure/">standard Jekyll structure</a>. We then put each book’s content in its own folder. In the template, the first book folder is simply called <code class="language-r highlighter-rouge"><span class="n">book</span></code>.</p>
+<blockquote class="box">
+  <p>Pro tip: You could also store several series in one repo, each series with its own set of Jekyll files, and a single <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">prose.yml</span></code> configuration in the root folder for all series subfolders. This is only useful if you don’t need a live staging site or previews with GitHub Pages, since each Jekyll setup must be in its own repo for GitHub Pages to work out of the box.</p>
+</blockquote>
+<h2 id="using-the-template">Using the template</h2>
+<p>The Electric Book repo (folder) is ready to use for a series of one or more books. In short, to get up and running, see the <a href="0-9-quick-start.html">Quick Start guide</a>.</p>
+<p>Now, let’s get into some more detail about how it all works. There are several folders and files in the series template repo:</p>
+<ul>
+  <li><code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">config.yml</span></code>: a file for setting configuration options for Jekyll, which will compile your book for output. There are several other smaller config files you can ignore. They are for changing specific config settings on output.</li>
+  <li><code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">prose.yml</span></code>: configuration settings for using <a href="http://prose.io">prose.io</a> for online book editing (generally, you won’t have to edit this file).</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">book</span></code>: a folder for a book’s content, stored here in a series of markdown files</li>
+  <li><code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">data</span></code>: a folder for information about your books (aka metadata).</li>
+  <li><code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">includes</span></code>: snippets of HTML for Jekyll (you won’t have to open this folder).</li>
+  <li><code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">site</span></code>: where Jekyll will generate the HTML versions of your books.</li>
+  <li><code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">output</span></code>: the folder where our output scripts will save your PDFs.</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">index.md</span></code>: the home page of your series when served as a website.</li>
+  <li>various <code class="language-r highlighter-rouge"><span class="n">.bat</span></code>, <code class="language-r highlighter-rouge"><span class="n">.command</span></code> and <code class="language-r highlighter-rouge"><span class="n">.sh</span></code> scripts for quickly generating books in different formats on various operating systems.</li>
+</ul>
+<p>Let’s explain some of these in more detail.</p>
+<p>The default design, the Electric Book Classic theme gem, is imported automatically when you run <code class="language-r highlighter-rouge"><span class="n">bundle</span><span class="w"> </span><span class="n">install</span></code>.</p>
+<p>That gem provides the basic design of your books. A theme is a collection of files (Sass, CSS, fonts, Javascript and hyphenation dictionaries) that define a book’s design. We hope that in future we and others might design other themes. Classic is extremely versatile and powerful already. For most book design, you’ll only have to edit the variables in each book’s <code class="language-r highlighter-rouge"><span class="n">print</span><span class="o">-</span><span class="n">pdf.scss</span></code>, <code class="language-r highlighter-rouge"><span class="n">screen</span><span class="o">-</span><span class="n">pdf.scss</span></code>, <code class="language-r highlighter-rouge"><span class="n">web.scss</span></code> and <code class="language-r highlighter-rouge"><span class="n">epub.scss</span></code>, and add your own custom CSS as needed.</p>
+<blockquote class="box">
+  <p>If you’re familiar with Sass, you’ll know that Jekyll will convert these <code class="language-r highlighter-rouge"><span class="n">.scss</span></code> files into finished <code class="language-r highlighter-rouge"><span class="n">.css</span></code> files. Sass, saved in <code class="language-r highlighter-rouge"><span class="n">.scss</span></code> files, is to CSS what markdown is to HTML: an efficient way to write that lets software do the hard work of creating finished code.</p>
+</blockquote>
+<h2 id="creating-a-new-book">Creating a new book</h2>
+<p>The process of setting up a new book is covered briefly in our <a href="0-9-quick-start.html#quick-new-book-setup">quick-start section</a>. Here is more detail.</p>
+<p>To create a new book in a new series:</p>
+<ol>
+  <li>The repo (or series folder) can hold one book or many, like a series of books that share similar metadata or features (e.g. they’re all by the same author). Make a copy of the folder and, if you like, rename it for your series. E.g. <code class="language-r highlighter-rouge"><span class="n">my</span><span class="o">-</span><span class="n">sci</span><span class="o">-</span><span class="n">fi</span></code>.</li>
+  <li>Inside <code class="language-r highlighter-rouge"><span class="n">my</span><span class="o">-</span><span class="n">sci</span><span class="o">-</span><span class="n">fi</span></code>, open and edit these three files:
+    <ul>
+      <li><code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">config.yml</span></code>: Edit the values there for your Jekyll setup. The comments will guide you.</li>
+      <li><code class="language-r highlighter-rouge"><span class="n">index.md</span></code>: Replace our template text with your own. Usually, a link to each book is useful, e.g. <code class="language-r highlighter-rouge"><span class="p">[</span><span class="n">Space</span><span class="w"> </span><span class="n">Potatoes</span><span class="p">](</span><span class="n">space</span><span class="o">-</span><span class="n">potatoes</span><span class="p">)</span></code>.</li>
+      <li><code class="language-r highlighter-rouge"><span class="n">README.md</span></code>: Replace our template text with any notes your collaborators might need to know about your series. (The README file is usually only read in the context of editing the files in your folder/repo.)</li>
+    </ul>
+  </li>
+  <li>Optionally, rename the <code class="language-r highlighter-rouge"><span class="n">book</span></code> folder with a one-word, lowercase version of your book’s title (e.g. <code class="language-r highlighter-rouge"><span class="n">space</span><span class="o">-</span><span class="n">potatoes</span></code>). Use only lowercase letters and no spaces. If you’re creating more than one book, make a folder for each book.</li>
+  <li>In <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">data</span></code>, edit the <code class="language-r highlighter-rouge"><span class="n">meta.yml</span></code> file, filling in your series info and info about at least your first book.</li>
+  <li>Inside a book’s <code class="language-r highlighter-rouge"><span class="n">text</span></code> folder, add a markdown file for each piece of your book, e.g. one file per chapter. Our template contains files we consider minimum requirements for most books: a cover, a title page, a copyright page, a contents page, and a chapter.</li>
+  <li>Inside each book’s folder, store images in the <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder. Add a <code class="language-r highlighter-rouge"><span class="n">cover.jpg</span></code> image of your book’s front cover there, too.</li>
+  <li>In each book’s <code class="language-r highlighter-rouge"><span class="n">styles</span></code> folder, edit the values in <code class="language-r highlighter-rouge"><span class="n">print</span><span class="o">-</span><span class="n">pdf.scss</span></code>, <code class="language-r highlighter-rouge"><span class="n">screen</span><span class="o">-</span><span class="n">pdf.scss</span></code>, <code class="language-r highlighter-rouge"><span class="n">web.scss</span></code> and <code class="language-r highlighter-rouge"><span class="n">epub.scss</span></code>.</li>
+</ol>
+<h2 id="creating-book-content">Creating book content</h2>
+<p>Each markdown file in <code class="language-r highlighter-rouge"><span class="n">space</span><span class="o">-</span><span class="n">potatoes</span></code> is a part of a book, such as a table of contents or a chapter. Each file must start with:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">---</span><span class="w">
+</span><span class="o">---</span><span class="w">
+</span></code></pre></div></div>
+<p>And between those <code class="language-r highlighter-rouge"><span class="o">---</span></code>s, we can and should specify some information about that part. This information is called YAML frontmatter.</p>
+<p>In each file’s YAML frontmatter (the info between <code class="language-r highlighter-rouge"><span class="o">---</span></code>s at the top) we specify the book-part’s <code class="language-r highlighter-rouge"><span class="n">title</span></code> and (sometimes) the book-part’s <code class="language-r highlighter-rouge"><span class="n">style</span></code> to use for that part. The <code class="language-r highlighter-rouge"><span class="n">style</span></code> specifies what kind of book-part it is, such as a <code class="language-r highlighter-rouge"><span class="n">title</span><span class="o">-</span><span class="n">page</span></code> or <code class="language-r highlighter-rouge"><span class="n">chapter</span></code>.</p>
+<blockquote class="box">
+  <p>Technical note: the <code class="language-r highlighter-rouge"><span class="n">style</span></code> YAML sets the class attribute of the output HTML’s <code class="language-r highlighter-rouge"><span class="o">&lt;</span><span class="n">body</span><span class="o">&gt;</span></code> element. Themes use that class to control CSS and page structure.</p>
+</blockquote>
+<p>When you create your book, we recommend following these conventions for file naming and YAML frontmatter <code class="language-r highlighter-rouge"><span class="n">style</span></code> settings:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Book section</th>
+      <th>Sample file</th>
+      <th>Style in YAML</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Front cover (for the ebook)</td>
+      <td><code class="language-r highlighter-rouge"><span class="m">0-0</span><span class="o">-</span><span class="n">cover.md</span></code></td>
+      <td><code class="language-r highlighter-rouge"><span class="n">cover</span></code></td>
+    </tr>
+    <tr>
+      <td>Title page</td>
+      <td><code class="language-r highlighter-rouge"><span class="m">0-1</span><span class="o">-</span><span class="n">titlepage.md</span></code></td>
+      <td><code class="language-r highlighter-rouge"><span class="n">title</span><span class="o">-</span><span class="n">page</span></code></td>
+    </tr>
+    <tr>
+      <td>Copyright page</td>
+      <td><code class="language-r highlighter-rouge"><span class="m">0-2</span><span class="o">-</span><span class="n">copyright.md</span></code></td>
+      <td><code class="language-r highlighter-rouge"><span class="n">copyright</span><span class="o">-</span><span class="n">page</span></code></td>
+    </tr>
+    <tr>
+      <td>Table of contents</td>
+      <td><code class="language-r highlighter-rouge"><span class="m">0-3</span><span class="o">-</span><span class="n">contents.md</span></code></td>
+      <td><code class="language-r highlighter-rouge"><span class="n">contents</span><span class="o">-</span><span class="n">page</span></code></td>
+    </tr>
+    <tr>
+      <td>Acknowledgements</td>
+      <td><code class="language-r highlighter-rouge"><span class="m">0-4</span><span class="o">-</span><span class="n">acknowledgements.md</span></code></td>
+      <td><code class="language-r highlighter-rouge"><span class="n">frontmatter</span></code></td>
+    </tr>
+    <tr>
+      <td>A first chapter</td>
+      <td><code class="language-r highlighter-rouge"><span class="m">1</span><span class="n">.md</span></code></td>
+      <td><code class="language-r highlighter-rouge"><span class="n">chapter</span></code></td>
+    </tr>
+    <tr>
+      <td>A second chapter</td>
+      <td><code class="language-r highlighter-rouge"><span class="m">2</span><span class="n">.md</span></code></td>
+      <td><code class="language-r highlighter-rouge"><span class="n">chapter</span></code></td>
+    </tr>
+  </tbody>
+</table>
+<p>If you don’t set the <code class="language-r highlighter-rouge"><span class="n">style</span></code>, the page will default to <code class="language-r highlighter-rouge"><span class="n">style</span><span class="o">:</span><span class="w"> </span><span class="n">chapter</span></code>. So you actually don’t need to ever set <code class="language-r highlighter-rouge"><span class="n">style</span><span class="o">:</span><span class="w"> </span><span class="n">chapter</span></code> in a YAML header. For most chapters in a book, then, your YAML frontmatter will simply include a chapter title:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">---</span><span class="w">
+</span><span class="n">title</span><span class="o">:</span><span class="w"> </span><span class="s2">"Chapter One: What are Space Potatoes?"</span><span class="w">
+</span><span class="o">---</span><span class="w">
+</span></code></pre></div></div>
+<p>Page styles we’ve designed for in the Classic theme include:</p>
+<ul>
+  <li><code class="language-r highlighter-rouge"><span class="n">index</span></code> for the home page of a collection</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">cover</span></code> for a front cover, which will appear in ebook editions</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">halftitle</span><span class="o">-</span><span class="n">page</span></code> for a book’s halftitle page</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">previous</span><span class="o">-</span><span class="n">publications</span><span class="o">-</span><span class="n">page</span></code> for a book’s list of the author’s previous publications</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">title</span><span class="o">-</span><span class="n">page</span></code> for a book’s title page</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">copyright</span><span class="o">-</span><span class="n">page</span></code> for the copyright or imprint page</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">contents</span><span class="o">-</span><span class="n">page</span></code> for the book’s table of contents</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">dedication</span><span class="o">-</span><span class="n">page</span></code> for a dedication page</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">epigraph</span><span class="o">-</span><span class="n">page</span></code> for an epigraph page</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">frontispiece</span><span class="o">-</span><span class="n">page</span></code> for a frontispiece page</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">frontmatter</span></code> for other prelim pages not accounted for otherwise</li>
+  <li><code class="language-r highlighter-rouge"><span class="n">chapter</span></code> for a book’s default chapter page (and the global default)</li>
+</ul>
+<p>You can also invent your own page styles, and use them in your custom CSS instead of these, though you may get unexpected results if you’ve been relying on a theme for existing styles like <code class="language-r highlighter-rouge"><span class="n">chapter</span></code>.</p>
+<h3 id="set-page-number-one">Set ‘page number one’</h3>
+<p>Many books have two ‘page ones’:</p>
+<ol>
+  <li>the half-title or title page and,</li>
+  <li>if the prelims have roman-numeral page numbers, the first chapter.</li>
+</ol>
+<p>You should specify those pages so that Prince knows where to start numbering when creating PDFs.</p>
+<p>Why? Well, for example, in print output if you use <code class="language-r highlighter-rouge"><span class="n">frontmatter</span></code> on a book-part, by default it will have roman-numeral page numbers. When the first <code class="language-r highlighter-rouge"><span class="n">chapter</span></code> starts, it will have decimal page numbers. However, the page numbering will be consecutive from roman through decimal. That is, it will run ‘ix, x, 11, 12’. You reset the numbering to 1 at the start of the first <code class="language-r highlighter-rouge"><span class="n">chapter</span></code> to avoid this.</p>
+<p>You reset page numbering by adding the class <code class="language-r highlighter-rouge"><span class="n">page</span><span class="m">-1</span></code> to the first block-level element on the relevant page.</p>
+<p>You can do this in two ways:</p>
+<ol>
+  <li>
+    <p>If a markdown document starts at ‘page one’, add the class to the <code class="language-r highlighter-rouge"><span class="n">style</span></code> YAML header. E.g.</p>
+    <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">---</span><span class="w">
+</span><span class="n">title</span><span class="o">:</span><span class="w"> </span><span class="n">Half</span><span class="o">-</span><span class="n">title</span><span class="w"> </span><span class="n">page</span><span class="w">
+</span><span class="n">style</span><span class="o">:</span><span class="w"> </span><span class="n">halftitle</span><span class="o">-</span><span class="n">page</span><span class="w"> </span><span class="n">page</span><span class="m">-1</span><span class="w">
+</span><span class="o">---</span><span class="w">
+</span></code></pre></div>    </div>
+    <p>And at the first chapter:</p>
+    <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">---</span><span class="w">
+</span><span class="n">title</span><span class="o">:</span><span class="w"> </span><span class="n">Chapter</span><span class="w"> </span><span class="n">One</span><span class="w">
+</span><span class="n">style</span><span class="o">:</span><span class="w"> </span><span class="n">chapter</span><span class="w"> </span><span class="n">page</span><span class="m">-1</span><span class="w">
+</span><span class="o">---</span><span class="w">
+</span></code></pre></div>    </div>
+    <p>Remember that <code class="language-r highlighter-rouge"><span class="n">chapter</span></code> is the default, so you normally don’t have to specify it. <em>But</em> if you want to <em>add</em> a class in addition to <code class="language-r highlighter-rouge"><span class="n">chapter</span></code>, you must specify both classes. This is because, if you were to use <code class="language-r highlighter-rouge"><span class="n">style</span><span class="o">:</span><span class="w"> </span><span class="n">page</span><span class="m">-1</span></code> in a YAML header, the class <code class="language-r highlighter-rouge"><span class="n">page</span><span class="m">-1</span></code> would override the default <code class="language-r highlighter-rouge"><span class="n">style</span><span class="o">:</span><span class="w"> </span><span class="n">chapter</span></code>, not add to it.</p>
+  </li>
+  <li>
+    <p>Alternatively, add the <code class="language-r highlighter-rouge"><span class="n">page</span><span class="m">-1</span></code> class to the first block-level element in the chapter by adding the tag <code class="language-r highlighter-rouge"><span class="p">{</span><span class="o">:</span><span class="n">.page</span><span class="m">-1</span><span class="p">}</span></code> in the line immediately after it. But for this to work, the element must <em>not</em> have a CSS float applied to it. So often this doesn’t work as well as specifying <code class="language-r highlighter-rouge"><span class="n">page</span><span class="m">-1</span></code> in YAML frontmatter.</p>
+  </li>
+</ol>
+<h3 id="file-naming">File naming</h3>
+<p>Name each book’s markdown files in perfectly alphabetical order. We recommend using a numbering system, where prelims (frontmatter) files start with a 0, e.g. <code class="language-r highlighter-rouge"><span class="m">0-1</span><span class="o">-</span><span class="n">titlepage.md</span></code>, <code class="language-r highlighter-rouge"><span class="m">0-2</span><span class="o">-</span><span class="n">copyright.md</span></code>, and chapter files are numbered for their chapter number, e.g. <code class="language-r highlighter-rouge"><span class="m">01</span><span class="n">.md</span></code>, <code class="language-r highlighter-rouge"><span class="m">02</span><span class="n">.md</span></code>, and so on. The alphabetical order makes it easy to see the documents in the right order at all times, and it makes ordering outputted HTML files easy when dropping them into Prince for PDF output.</p>
+<blockquote class="box">
+  <p>Note: We recommend using leading zeros in file-name numbers – that is, <code class="language-r highlighter-rouge"><span class="m">02</span><span class="n">.md</span></code> rather than <code class="language-r highlighter-rouge"><span class="m">2</span><span class="n">.md</span></code> – because that sorts correctly in most file browsers. Otherwise, some file browsers will sort <code class="language-r highlighter-rouge"><span class="m">10</span><span class="n">.md</span></code> before <code class="language-r highlighter-rouge"><span class="m">2</span><span class="n">.md</span></code>. In the rare event that you have over 99 chapters, use two leading zeros: <code class="language-r highlighter-rouge"><span class="m">001</span><span class="n">.md</span></code>.</p>
+</blockquote>
+<h2 id="the-images-folder">The <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder</h2>
+<p>Alongside the content files in a book’s folder is an <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder, for images that belong to that book only.</p>
+<p>A book’s folder should only ever need to contain markdown files and images. If you’re embedding other kinds of media you could add folders for that alongside <code class="language-r highlighter-rouge"><span class="n">images</span></code>. We don’t recommend sharing images or media between books, in case you want to move a book from one series to another later. (So, for example, copy the publisher logo into each book’s <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder separately.)</p>
+<p>If your series home page requires images, you will need to create an <code class="language-r highlighter-rouge"><span class="n">images</span></code> folder for that in the main series folder.</p>
+	</div><!--#content-->
+    <div id="nav" class="non-printing">
+            <h2>Documentation</h2>
+            <div class="nav-list">
+                    <ol class="nav-series-home">
+                        <li><a href="../index.html">Home</a></li>
+                    </ol>
+                    <ul>
+                        <li><a href="../docs">Docs</a>
+<ul>
+    <li class="has-children"><a>Editing</a>
+      <ul>
+          <li>
+            <a href="/docs/bibliography.html">Bibliography</a>
+          </li>
+          <li>
+            <a href="/docs/boxes-and-box-like-features.html">Boxes</a>
+          </li>
+          <li>
+            <a href="/docs/classes.html">Supported classes</a>
+          </li>
+          <li>
+            <a href="/docs/definitions.html">Definitions</a>
+          </li>
+          <li>
+            <a href="/docs/dialogue.html">Dialogue</a>
+          </li>
+          <li>
+            <a href="/docs/figures.html">Figures</a>
+          </li>
+          <li>
+            <a href="/docs/glossary.html">Glossary</a>
+          </li>
+          <li>
+            <a href="/docs/house-style.html">House style</a>
+          </li>
+          <li>
+            <a href="/docs/images.html">Images</a>
+          </li>
+          <li>
+            <a href="/docs/include-theme-legend.html">Theme legends</a>
+          </li>
+          <li>
+            <a href="/docs/markdown.html">Markdown</a>
+          </li>
+          <li>
+            <a href="/docs/mathematics.html">Mathematics</a>
+          </li>
+          <li>
+            <a href="/docs/multiple-choice-questions.html">Questions</a>
+          </li>
+          <li>
+            <a href="/docs/notes.html">Footnotes, endnotes and sidenotes</a>
+          </li>
+          <li>
+            <a href="/docs/showing-links-and-cross-references-in-print.html">Links and cross-refs</a>
+          </li>
+          <li>
+            <a href="/docs/slides.html">Slidelines</a>
+          </li>
+          <li>
+            <a href="/docs/superscripts-and-subscripts.html">Superscripts and subscripts</a>
+          </li>
+          <li>
+            <a href="/docs/tables.html">Tables</a>
+          </li>
+          <li>
+            <a href="/docs/theme-key.html">Theme keys</a>
+          </li>
+          <li>
+            <a href="/docs/tocs.html">Tables of contents</a>
+          </li>
+          <li>
+            <a href="/docs/translations.html">Translations</a>
+          </li>
+          <li>
+            <a href="/docs/videos.html">Videos</a>
+          </li>
+          <li>
+            <a href="/docs/web-navigation.html">Navigation</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Technical</a>
+      <ul>
+          <li>
+            <a href="/docs/converting-manuscript-to-markdown.html">Converting manuscript to markdown</a>
+          </li>
+          <li>
+            <a href="/docs/external-media.html">External media</a>
+          </li>
+          <li>
+            <a href="/docs/javascript.html">Javascript</a>
+          </li>
+          <li>
+            <a href="/docs/requirements.html">Technical requirements</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up-your-computer.html">Setting up your computer</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up.html">Setting up</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Layout</a>
+      <ul>
+          <li>
+            <a href="/docs/page-numbers.html">Page numbers</a>
+          </li>
+          <li>
+            <a href="/docs/print-layout.html">Print layout</a>
+          </li>
+          <li>
+            <a href="/docs/running-heads-in-print.html">Running heads</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Output</a>
+      <ul>
+          <li>
+            <a href="/docs/print-output.html">Print output</a>
+          </li>
+      </ul>
+    </li>
+</ul>
+                        </li>
+                    </ul>
+  <ol class="">
+  </ol>
+            </div><!--.nav-list-->
+            <div class="widgets">
+            </div><!--.widgets-->
+    </div><!--#nav-->
+    <div id="footer" dir="ltr">
+        <div class="footer-content">
+            <div class="footer-logos">
+                <a href="http://core-econ.org">
+                    <img src="../assets/coreecon_logo_bw.png">
+                </a>
+            </div>
+            <div class="footer-text">
+            </div>
+            <div class="footer-licence">
+                <a title="Licensed under Creative Commons BY NC ND" alt="Licensed under Creative Commons BY NC ND" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="../assets/cc-byncnd.png"></a>
+                <br />
+            </div>
+        </div><!--.footer-content-->
+    </div><!--#footer-->
+    <script src="../assets/js/bundle.js"></script>
+    <style>
+        .js-mcq .mcq-correct .mcq-feedback:before {
+            content: "Correct!";
+        }
+        .js-mcq .mcq-incorrect .mcq-feedback:before {
+            content: "Incorrect";
+        }
+        .js-mcq .mcq-partially-correct .mcq-feedback:before {
+            content: "You haven't selected all the correct answers.";
+        }
+    </style>
+</div><!--#wrapper-->
+</body>
+</html>

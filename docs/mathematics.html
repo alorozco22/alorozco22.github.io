@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <title>
+    Experiments in economics: Laboratory projects: Mathematics
+    </title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="Mathematics" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.core-econ.org/docs/mathematics.html" />
+    <meta property="og:image" content="http://www.core-econ.org/_docs/images/web/" />
+        <link rel="stylesheet" type="text/css" media="all" href="/book/styles/web.css" />
+<script id="MathJax"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script id="MathJaxConfig" type="text/x-mathjax-config" >
+MathJax.Hub.Config({
+    messageStyle: "none",
+    "HTML-CSS": {
+        availableFonts: [], // force use of webFont
+        webFont: "Gyre-Pagella",
+        scale: 90,
+        styles: {
+            ".MathJax [style*=border-top-width]": {
+                "border-top-width": "0.5pt ! important"
+            }
+        }
+    }
+});
+</script>
+<script>
+WebFontConfig = {
+     google: {
+         families: ['Amiri:400,400i,700', 'Source Sans Pro:400,700,700:latin-ext']
+     }
+};
+(function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = 'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.js';
+    wf.async = true;
+    s.parentNode.insertBefore(wf, s);
+})(document)
+</script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-71347024-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-106812057-1');
+</script>
+</head>
+<body class="_docs chapter">
+<div class="notification warning-testing-site">
+    You're looking at a testing site for Experiments in economics: Laboratory projects, not the real, live site.
+</div>
+<div id="wrapper">
+<div class="masthead">
+    <ul>
+        <li class="masthead-series-name"><a href="../index.html">Experiments in economics: Laboratory projects</a></li>
+    </ul>
+</div><!--.masthead-->
+<div class="nav-buttons">
+	<a class="nav-back-button">←</a>
+	<a class="nav-button" href="#nav">Contents</a>
+</div>
+    <div class="chapter-opener-image chapter-opener-image-none">
+    </div>
+	<div id="content">
+<h1 id="mathematics">Mathematics</h1>
+<p>This page is about how to create maths using LaTeX and MathJax. For stylistic issues, see <a href="house-style.html">House style</a>.</p>
+<p>We’re using LaTeX syntax for maths. The LaTeX is turned into displayed maths by <a href="http://docs.mathjax.org/en/latest/index.html">MathJax</a>. Surround your LaTeX with <code class="language-r highlighter-rouge"><span class="o">$$</span></code> to have MathJax process it.</p>
+<h3 id="mathjax-in-html-blocks">MathJax in HTML blocks</h3>
+<p>Sometimes we have to use actual HTML code in our markdown, for instance when adding an HTML table to a figure. In that case, we surround LaTeX with <code class="language-r highlighter-rouge"><span class="o">$$</span></code> … <code class="language-r highlighter-rouge"><span class="o">$$</span></code> for displayed maths (centered, with blank space above and below), and <code class="language-r highlighter-rouge"><span class="err">\</span><span class="p">(</span></code> … <code class="language-r highlighter-rouge"><span class="err">\</span><span class="p">)</span></code> for inline maths.</p>
+<h3 id="avoid-using-latex-for-content-layout">Avoid using LaTeX for content layout</h3>
+<p>LaTeX syntax can store two different kinds of info:</p>
+<ol>
+  <li>mathematics, delimited in our markdown with <code class="language-r highlighter-rouge"><span class="o">$$</span></code></li>
+  <li>content layout, which we must not use here.</li>
+</ol>
+<p>MathJax can only display the mathematics, and does not understand content layout. (More detail <a href="http://docs.mathjax.org/en/latest/tex.html">here</a>.)</p>
+<p>So in the first Leibniz, manuscript, we have this LaTeX:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">\</span><span class="n">renewcommand</span><span class="o">*</span><span class="p">{</span><span class="err">\</span><span class="n">arraystretch</span><span class="p">}{</span><span class="m">1.5</span><span class="p">}</span><span class="w">
+</span><span class="err">\</span><span class="n">begin</span><span class="p">{</span><span class="n">tabular</span><span class="p">}{</span><span class="n">l</span><span class="w"> </span><span class="n">l</span><span class="p">}</span><span class="w">
+</span><span class="o">$</span><span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="o">$</span><span class="n">x</span><span class="o">$</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="o">$</span><span class="n">y</span><span class="o">$</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="err">\\</span><span class="w">
+</span><span class="o">$</span><span class="err">\</span><span class="n">dfrac</span><span class="p">{</span><span class="n">dy</span><span class="p">}{</span><span class="n">dx</span><span class="p">}</span><span class="o">$</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">derivative</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">$</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="w"> </span><span class="err">\\</span><span class="w">
+</span><span class="o">$</span><span class="n">f</span><span class="s1">'( x)$ &amp; alternative notation for the first derivative of $f(x)$ \\
+$\dfrac{d^2 y}{dx^2}$ &amp; second derivative of $f(x)$ \\
+$f'</span><span class="err">'</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="n">notation</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">derivative</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">$</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$</span><span class="w">
+</span><span class="err">\</span><span class="n">end</span><span class="p">{</span><span class="n">tabular</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>If you paste that into <a href="https://www.latex4technics.com/">this online converter</a> you’ll see that the LaTeX (top window) displays fine, but the MathJax window shows an error.</p>
+<p>This is because that notation includes both maths and layout stuff – MathJax can’t handle the layout stuff.</p>
+<p>You have to learn to tell one from the other and fix the notation manually. In this case, and hopefully in all cases, that’s actually quite easy, once you see what the author intended, by using that online converter or the image pasted into the Leibnez MS Word source file.</p>
+<p>In this case, the author wants a table, with the first column containing math expressions, and the second column containing an explanation of each expression. So we need to manually change this LaTeX to a markdown table with inline maths. This means two things:</p>
+<ol>
+  <li>Replace the LaTeX table layout stuff with equivalent markdown.</li>
+  <li>Change the single <code class="language-r highlighter-rouge"><span class="o">$</span></code> delimiters around the LaTeX math to doubles <code class="language-r highlighter-rouge"><span class="o">$$</span></code>.</li>
+</ol>
+<p>(<a href="http://electricbook.works/guide/text/03-markdown.html#simple-tables">Here’s a quick guide to kramdown-markdown tables.</a>)</p>
+<p>Once we do that, the markdown, with inline math, looks like this:</p>
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">|</span><span class="w"> </span><span class="o">$$</span><span class="n">y</span><span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$$</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">function</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">variable</span><span class="p">,</span><span class="w"> </span><span class="n">where</span><span class="w"> </span><span class="o">$$</span><span class="n">x</span><span class="o">$$</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">argument</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="o">$$</span><span class="n">y</span><span class="o">$$</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">output</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="o">$$</span><span class="err">\</span><span class="n">dfrac</span><span class="p">{</span><span class="n">dy</span><span class="p">}{</span><span class="n">dx</span><span class="p">}</span><span class="o">$$</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">derivative</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">$$</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$$</span><span class="w">
+</span><span class="o">|</span><span class="w"> </span><span class="o">$$</span><span class="n">f</span><span class="s1">'( x)$$ | alternative notation for the first derivative of $$f(x)$$
+| $$\dfrac{d^2 y}{dx^2}$$ | second derivative of $$f(x)$$
+$$f'</span><span class="err">'</span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="o">$$</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">alternative</span><span class="w"> </span><span class="n">notation</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">derivative</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="o">$$</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">$$</span><span class="w">
+</span></code></pre></div></div>
+<h2 id="technical">Technical</h2>
+<p>To enable LaTeX syntax for maths:</p>
+<ol>
+  <li>Set <code class="language-r highlighter-rouge"><span class="n">mathjax</span><span class="o">-</span><span class="n">enabled</span><span class="o">:</span><span class="w"> </span><span class="n">true</span></code> in <code class="language-r highlighter-rouge"><span class="err">_</span><span class="n">config.yml</span></code>. It is off (<code class="language-r highlighter-rouge"><span class="n">false</span></code>) by default to avoid loading unnecessary scripts in books without maths.</li>
+  <li>For PDF output, you must have <a href="http://phantomjs.org/">PhantomJS</a> installed. (PhantomJS must render the maths before Prince can include it in PDF output.)</li>
+</ol>
+<p>The LaTeX is turned into displayed maths by <a href="http://docs.mathjax.org/en/latest/index.html">MathJax</a>. Surround your LaTeX with <code class="language-r highlighter-rouge"><span class="o">$$</span></code> … <code class="language-r highlighter-rouge"><span class="o">$$</span></code> to have MathJax process it.</p>
+	</div><!--#content-->
+    <div id="nav" class="non-printing">
+            <h2>Documentation</h2>
+            <div class="nav-list">
+                    <ol class="nav-series-home">
+                        <li><a href="../index.html">Home</a></li>
+                    </ol>
+                    <ul>
+                        <li><a href="../docs">Docs</a>
+<ul>
+    <li class="has-children"><a>Editing</a>
+      <ul>
+          <li>
+            <a href="/docs/bibliography.html">Bibliography</a>
+          </li>
+          <li>
+            <a href="/docs/boxes-and-box-like-features.html">Boxes</a>
+          </li>
+          <li>
+            <a href="/docs/classes.html">Supported classes</a>
+          </li>
+          <li>
+            <a href="/docs/definitions.html">Definitions</a>
+          </li>
+          <li>
+            <a href="/docs/dialogue.html">Dialogue</a>
+          </li>
+          <li>
+            <a href="/docs/figures.html">Figures</a>
+          </li>
+          <li>
+            <a href="/docs/glossary.html">Glossary</a>
+          </li>
+          <li>
+            <a href="/docs/house-style.html">House style</a>
+          </li>
+          <li>
+            <a href="/docs/images.html">Images</a>
+          </li>
+          <li>
+            <a href="/docs/include-theme-legend.html">Theme legends</a>
+          </li>
+          <li>
+            <a href="/docs/markdown.html">Markdown</a>
+          </li>
+          <li>
+            <a href="/docs/mathematics.html">Mathematics</a>
+          </li>
+          <li>
+            <a href="/docs/multiple-choice-questions.html">Questions</a>
+          </li>
+          <li>
+            <a href="/docs/notes.html">Footnotes, endnotes and sidenotes</a>
+          </li>
+          <li>
+            <a href="/docs/showing-links-and-cross-references-in-print.html">Links and cross-refs</a>
+          </li>
+          <li>
+            <a href="/docs/slides.html">Slidelines</a>
+          </li>
+          <li>
+            <a href="/docs/superscripts-and-subscripts.html">Superscripts and subscripts</a>
+          </li>
+          <li>
+            <a href="/docs/tables.html">Tables</a>
+          </li>
+          <li>
+            <a href="/docs/theme-key.html">Theme keys</a>
+          </li>
+          <li>
+            <a href="/docs/tocs.html">Tables of contents</a>
+          </li>
+          <li>
+            <a href="/docs/translations.html">Translations</a>
+          </li>
+          <li>
+            <a href="/docs/videos.html">Videos</a>
+          </li>
+          <li>
+            <a href="/docs/web-navigation.html">Navigation</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Technical</a>
+      <ul>
+          <li>
+            <a href="/docs/converting-manuscript-to-markdown.html">Converting manuscript to markdown</a>
+          </li>
+          <li>
+            <a href="/docs/external-media.html">External media</a>
+          </li>
+          <li>
+            <a href="/docs/javascript.html">Javascript</a>
+          </li>
+          <li>
+            <a href="/docs/requirements.html">Technical requirements</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up-your-computer.html">Setting up your computer</a>
+          </li>
+          <li>
+            <a href="/docs/setting-up.html">Setting up</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Layout</a>
+      <ul>
+          <li>
+            <a href="/docs/page-numbers.html">Page numbers</a>
+          </li>
+          <li>
+            <a href="/docs/print-layout.html">Print layout</a>
+          </li>
+          <li>
+            <a href="/docs/running-heads-in-print.html">Running heads</a>
+          </li>
+      </ul>
+    </li>
+    <li class="has-children"><a>Output</a>
+      <ul>
+          <li>
+            <a href="/docs/print-output.html">Print output</a>
+          </li>
+      </ul>
+    </li>
+</ul>
+                        </li>
+                    </ul>
+  <ol class="">
+  </ol>
+            </div><!--.nav-list-->
+            <div class="widgets">
+            </div><!--.widgets-->
+    </div><!--#nav-->
+    <div id="footer" dir="ltr">
+        <div class="footer-content">
+            <div class="footer-logos">
+                <a href="http://core-econ.org">
+                    <img src="../assets/coreecon_logo_bw.png">
+                </a>
+            </div>
+            <div class="footer-text">
+            </div>
+            <div class="footer-licence">
+                <a title="Licensed under Creative Commons BY NC ND" alt="Licensed under Creative Commons BY NC ND" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img src="../assets/cc-byncnd.png"></a>
+                <br />
+            </div>
+        </div><!--.footer-content-->
+    </div><!--#footer-->
+    <script src="../assets/js/bundle.js"></script>
+    <style>
+        .js-mcq .mcq-correct .mcq-feedback:before {
+            content: "Correct!";
+        }
+        .js-mcq .mcq-incorrect .mcq-feedback:before {
+            content: "Incorrect";
+        }
+        .js-mcq .mcq-partially-correct .mcq-feedback:before {
+            content: "You haven't selected all the correct answers.";
+        }
+    </style>
+</div><!--#wrapper-->
+</body>
+</html>
